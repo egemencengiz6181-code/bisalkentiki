@@ -14,13 +14,33 @@ kurumsal sitelerden (bisi.k12.tr) türetilmiştir.
 ## Sayfalar
 | Yol | Sayfa |
 |-----|-------|
-| `/` | Ana Sayfa (hero, program, yaklaşım, galeri, haberler, CTA) |
+| `/` | Ana Sayfa (tam ekran hero slider, program, yaklaşım, galeri, haberler, CTA) |
 | `/hakkimizda` | Hakkımızda · Vizyon & Misyon · Değerler |
 | `/anaokulu` | Anaokulu Programı · Yaş grupları · Müfredat · Günlük akış · SSS |
 | `/yaklasim` | Eğitim Yaklaşımı · İlkeler · Yöntem · Aile iş birliği |
 | `/kampus` | Kampüs & Galeri · Konum haritası · Diğer kampüsler |
 | `/haberler` | Haberler & Blog (kategori filtreli) |
 | `/iletisim` | İletişim & Ön Kayıt formu · Harita |
+
+### Kurumsal & Akademik (bisi.k12.tr içeriklerinden uyarlanmış)
+| Yol | Sayfa |
+|-----|-------|
+| `/kurumsal-yapi` | Kurumsal Yapı — BİS Schools ailesi |
+| `/bis-hakkinda` | BİS Hakkında — BİS ne anlama gelir, neden BİS |
+| `/vizyon-misyon` | Vizyon ve Misyon · Değerler |
+| `/sss` | Sık Sorulan Sorular |
+| `/saglik-guvenlik` | Sağlık ve Güvenlik |
+| `/kvkk` | KVKK Aydınlatma Metni |
+| `/kalite-sertifikalari` | Kalite Sertifikaları (ISO) |
+| `/uluslararasi-bakalorya` | Uluslararası Bakalorya (IB) |
+| `/ogrenme-destek` | Öğrenme Destek Birimi |
+| `/rehberlik` | Rehberlik ve Psikolojik Danışmanlık |
+| `/yaratici-sanatlar` | Yaratıcı Sanatlar |
+
+Bu sayfalar `src/data/institutional.js` içindeki içerikten, blok tabanlı
+`src/pages/ContentPage.jsx` bileşeniyle üretilir. Menü ve footer grupları da
+(Kurumsal / Akademik) aynı dosyadan beslenir. `Kariyer` menü öğesi harici bağlantıdır.
+İlkokul/Ortaokul/Lise ve LGS Bursları içerikleri anaokulu odağı gereği eklenmemiştir.
 
 ## Komutlar
 ```bash

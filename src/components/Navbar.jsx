@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { NAV, CONTACT } from "../data/site.js";
+import { CONTACT } from "../data/site.js";
+import { MENU } from "../data/institutional.js";
 import Icon from "./Icon.jsx";
 import TreeMark from "./TreeMark.jsx";
 import "./navbar.css";
@@ -25,9 +26,10 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menu, search]);
 
+  const ALL_LINKS = [...MENU.primary, ...MENU.groups.flatMap((g) => g.items)].filter((x) => x.to);
   const results = q.trim()
-    ? NAV.filter((n) => n.label.toLocaleLowerCase("tr").includes(q.toLocaleLowerCase("tr")))
-    : NAV;
+    ? ALL_LINKS.filter((n) => n.label.toLocaleLowerCase("tr").includes(q.toLocaleLowerCase("tr")))
+    : ALL_LINKS.slice(0, 8);
 
   const go = (to) => { setSearch(false); setQ(""); navigate(to); };
 
@@ -116,11 +118,11 @@ export default function Navbar() {
             </div>
             <div className="container menuover__body">
               <nav className="menuover__nav">
-                {NAV.map((item, i) => (
+                {MENU.primary.map((item, i) => (
                   <motion.div
                     key={item.to}
-                    initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
-                    transition={{ delay: 0.06 * i + 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
+                    transition={{ delay: 0.05 * i + 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <NavLink to={item.to} end={item.to === "/"} className="menuover__link" onClick={() => setMenu(false)}>
                       <span className="menuover__num">0{i + 1}</span>
@@ -129,9 +131,32 @@ export default function Navbar() {
                   </motion.div>
                 ))}
               </nav>
+
+              <motion.div
+                className="menuover__groups"
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                {MENU.groups.map((g) => (
+                  <div key={g.title} className="menuover__group">
+                    <span className="menuover__eyebrow">{g.title}</span>
+                    <ul>
+                      {g.items.map((it) => (
+                        <li key={it.label}>
+                          {it.href ? (
+                            <a href={it.href} target="_blank" rel="noreferrer" className="menuover__sublink">{it.label}</a>
+                          ) : (
+                            <NavLink to={it.to} end={it.to === "/"} className="menuover__sublink" onClick={() => setMenu(false)}>{it.label}</NavLink>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </motion.div>
+
               <motion.div
                 className="menuover__side"
-                initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35, duration: 0.6 }}
+                initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.6 }}
               >
                 <span className="menuover__eyebrow">İletişim</span>
                 <a href={CONTACT.phoneHref} className="menuover__contact"><Icon name="phone" size={18} /> {CONTACT.phone}</a>

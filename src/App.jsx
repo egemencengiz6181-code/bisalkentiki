@@ -10,6 +10,7 @@ import Approach from "./pages/Approach.jsx";
 import Campus from "./pages/Campus.jsx";
 import News from "./pages/News.jsx";
 import Contact from "./pages/Contact.jsx";
+import ContentPage from "./pages/ContentPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 function ScrollToTop() {
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/kampus" element={<Page><Campus /></Page>} />
           <Route path="/haberler" element={<Page><News /></Page>} />
           <Route path="/iletisim" element={<Page><Contact /></Page>} />
+          <Route path="/:slug" element={<Page><ContentPage /></Page>} />
           <Route path="*" element={<Page><NotFound /></Page>} />
         </Routes>
       </AnimatePresence>

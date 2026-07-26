@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { NAV, CONTACT } from "../data/site.js";
+import { CONTACT } from "../data/site.js";
+import { MENU } from "../data/institutional.js";
 import Icon from "./Icon.jsx";
 import "./footer.css";
 
@@ -31,29 +32,30 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="footer__col">
-          <h4>Keşfet</h4>
-          <ul>
-            {NAV.map((n) => (
-              <li key={n.to}><Link to={n.to}>{n.label}</Link></li>
-            ))}
-          </ul>
-        </div>
+        {MENU.groups.map((g) => (
+          <div className="footer__col" key={g.title}>
+            <h4>{g.title}</h4>
+            <ul>
+              {g.items.map((it) => (
+                <li key={it.label}>
+                  {it.href
+                    ? <a href={it.href} target="_blank" rel="noreferrer">{it.label}</a>
+                    : <Link to={it.to}>{it.label}</Link>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-        <div className="footer__col">
+        <div className="footer__col footer__cta">
           <h4>İletişim</h4>
           <ul className="footer__contact">
             <li><a href={CONTACT.phoneHref}><Icon name="phone" size={16} /> {CONTACT.phone}</a></li>
             <li><a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={16} /> {CONTACT.email}</a></li>
             <li><span><Icon name="pin" size={16} /> {CONTACT.address}</span></li>
           </ul>
-        </div>
-
-        <div className="footer__col footer__cta">
-          <h4>Ön kayıt başladı</h4>
-          <p>Kontenjanlar sınırlı. Çocuğunuz için bir yer ayıralım.</p>
-          <Link to="/iletisim" className="btn btn-gold">
-            Başvuru Yap <Icon name="arrow" size={16} className="arrow" />
+          <Link to="/iletisim" className="btn btn-gold" style={{ marginTop: "1.2rem" }}>
+            Ön Kayıt <Icon name="arrow" size={16} className="arrow" />
           </Link>
         </div>
       </div>
