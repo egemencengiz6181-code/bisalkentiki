@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { CONTACT } from "../data/site.js";
+import { CONTACT, SISTER_SITES } from "../data/site.js";
 import { MENU } from "../data/institutional.js";
 import Icon from "./Icon.jsx";
 import TreeMark from "./TreeMark.jsx";
@@ -36,14 +36,21 @@ export default function Navbar() {
   return (
     <>
       <header className={`hdr ${scrolled ? "hdr--solid" : ""}`}>
-        {/* Üst utility bar */}
+        {/* Üst utility bar — diğer BİS kampüsleri */}
         <div className="hdr__top">
           <div className="container hdr__top-inner">
-            <a href="https://www.bisi.k12.tr/tr-TR/" target="_blank" rel="noreferrer" className="hdr__util">BİS Okulları</a>
-            <Link to="/kampus" className="hdr__util">Kampüslerimiz</Link>
-            <Link to="/iletisim" className="hdr__util">İletişim Formu</Link>
+            <span className="hdr__toplabel">Diğer Kampüsler</span>
+            <nav className="hdr__sisters">
+              {SISTER_SITES.map((s) => (
+                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="hdr__util">
+                  {s.label}
+                  <span className="hdr__utilsub">Resmi Web Sitesi</span>
+                </a>
+              ))}
+            </nav>
+            <span className="hdr__topsep" aria-hidden="true" />
             <button className="hdr__iconbtn" aria-label="Ara" onClick={() => setSearch(true)}>
-              <Icon name="search" size={17} />
+              <Icon name="search" size={16} />
             </button>
             <span className="hdr__lang"><span className="hdr__flag">TR</span></span>
           </div>
@@ -62,8 +69,8 @@ export default function Navbar() {
           </Link>
 
           <Link to="/iletisim" className="hdr__info">
-            <span className="hdr__infotext">BİLGİ FORMU</span>
-            <span className="hdr__infoic"><Icon name="info" size={16} /></span>
+            <span className="hdr__infotext">Bilgi Formu</span>
+            <span className="hdr__infoic"><Icon name="arrow" size={15} /></span>
           </Link>
         </div>
       </header>

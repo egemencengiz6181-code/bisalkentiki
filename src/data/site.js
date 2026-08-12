@@ -10,6 +10,24 @@ export const CONTACT = {
   instagramHandle: "@bisalkent",
 };
 
+// Üst bar — diğer BİS kampüslerinin resmi siteleri (bisalkent.com üst şeridi)
+export const SISTER_SITES = [
+  { label: "Zekeriyaköy", href: "https://www.bisi.k12.tr/tr-TR/" },
+  { label: "Bahçeşehir", href: "https://www.bisi.k12.tr/tr-TR/" },
+  { label: "Çamlıca", href: "https://www.bisi.k12.tr/tr-TR/" },
+  { label: "Etiler STEAM", href: "https://www.bis.k12.tr" },
+];
+
+// Kurumsal vurgu bandı
+export const QUOTE = "En yüksek eğitim standartları";
+
+// "Bize ulaşabilirsiniz" hizmet kartları
+export const CONTACT_FOR = [
+  { icon: "edit", title: "Kayıt Kabul", text: "Ön kayıt koşulları, kontenjanlar ve başvuru takvimi hakkında bilgi alın." },
+  { icon: "info", title: "İşlemler", text: "Kayıt evrakları, ücretlendirme ve süreçle ilgili tüm sorularınız için." },
+  { icon: "pin", title: "Kampüs Ziyareti", text: "Kampüsümüzü keşfedin, öğretmenlerimizle tanışın; sınıflarımızı birlikte gezelim." },
+];
+
 export const NAV = [
   { to: "/", label: "Ana Sayfa" },
   { to: "/hakkimizda", label: "Hakkımızda" },
@@ -64,7 +82,7 @@ export const AGE_GROUPS = [
     age: "3 yaş",
     title: "Keşif Başlıyor",
     color: "var(--terra)",
-    tint: "#fbeae2",
+    tint: "#f4e7df",
     desc: "İlk adımlar. Duyusal oyun, güvenli bağlanma ve rutinlerle çocuklar okulu sever, keşfetmeyi öğrenir.",
     points: ["Duyusal ve sezgisel öğrenme", "Öz bakım becerileri", "Oyunla İngilizce'ye ilk temas"],
   },
@@ -73,7 +91,7 @@ export const AGE_GROUPS = [
     age: "4 yaş",
     title: "Merak Çağı",
     color: "var(--gold)",
-    tint: "#f7ecd3",
+    tint: "#f2ebda",
     desc: "Sorular çoğalır. Proje temelli etkinlikler, erken okuryazarlık ve sayı sezgisiyle düşünme derinleşir.",
     points: ["Proje temelli keşif", "Erken okuryazarlık & matematik", "Sosyal-duygusal gelişim"],
   },
@@ -82,7 +100,7 @@ export const AGE_GROUPS = [
     age: "5 yaş",
     title: "İlkokula Hazırlık",
     color: "var(--pine)",
-    tint: "#e2efe9",
+    tint: "#e4ede7",
     desc: "Kendine güvenen öğrenciler. Okuryazarlık, problem çözme ve öz düzenleme becerileriyle ilkokula sağlam bir geçiş.",
     points: ["Okuma-yazma temeli", "Eleştirel düşünme", "Bağımsızlık & sorumluluk"],
   },

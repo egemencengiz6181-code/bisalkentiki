@@ -59,34 +59,50 @@ export default function HeroSlider() {
           className="hs__actions"
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}
         >
-          <Link to="/anaokulu" className="btn btn-gold">Daha Fazlası <Icon name="arrow" size={17} className="arrow" /></Link>
-          <Link to="/iletisim" className="hs__ghost">Ön Kayıt</Link>
+          <Link to="/iletisim" className="btn btn-gold"><span>Ön Kayıt</span> <Icon name="arrow" size={16} className="arrow" /></Link>
+          <Link to="/anaokulu" className="hs__ghost">Daha Fazlası</Link>
         </motion.div>
       </div>
 
-      {/* Oklar */}
-      <button className="hs__arrow hs__arrow--prev" onClick={() => { prev(); reset(); }} aria-label="Önceki">
-        <Icon name="chevronLeft" size={26} />
-      </button>
-      <button className="hs__arrow hs__arrow--next" onClick={() => { next(); reset(); }} aria-label="Sonraki">
-        <Icon name="chevronRight" size={26} />
-      </button>
+      {/* Alt kontrol şeridi — sayaç, ilerleme, oklar */}
+      <div className="hs__bar">
+        <div className="container hs__bar-inner">
+          <span className="hs__count">
+            <em>{String(i + 1).padStart(2, "0")}</em>
+            <i />
+            {String(n).padStart(2, "0")}
+          </span>
 
-      {/* Noktalar */}
-      <div className="hs__dots">
-        {HERO_SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            className={`hs__dot ${idx === i ? "is-active" : ""}`}
-            onClick={() => { goTo(idx, idx > i ? 1 : -1); reset(); }}
-            aria-label={`${idx + 1}. görsel`}
-          />
-        ))}
+          <div className="hs__track" role="tablist" aria-label="Görseller">
+            {HERO_SLIDES.map((s, idx) => (
+              <button
+                key={idx}
+                role="tab"
+                aria-selected={idx === i}
+                className={`hs__seg ${idx === i ? "is-active" : ""}`}
+                onClick={() => { goTo(idx, idx > i ? 1 : -1); reset(); }}
+                aria-label={s.eyebrow}
+              >
+                <span />
+              </button>
+            ))}
+          </div>
+
+          <div className="hs__nav">
+            <button className="hs__arrow" onClick={() => { prev(); reset(); }} aria-label="Önceki">
+              <Icon name="chevronLeft" size={20} />
+            </button>
+            <button className="hs__arrow" onClick={() => { next(); reset(); }} aria-label="Sonraki">
+              <Icon name="chevronRight" size={20} />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Aşağı işareti */}
       <div className="hs__scroll" aria-hidden="true">
-        <span className="hs__mouse"><span /></span>
+        <span className="hs__scrolltext">Keşfet</span>
+        <span className="hs__scrollline" />
       </div>
     </section>
   );

@@ -1,49 +1,56 @@
 /* ---------- PageHero ---------- */
 .phero {
   position: relative;
-  padding: clamp(9rem, 16vw, 12rem) 0 clamp(4rem, 8vw, 6rem);
+  padding: clamp(10rem, 17vw, 13.5rem) 0 clamp(4.5rem, 8vw, 7rem);
   overflow: hidden;
   isolation: isolate;
-  background: var(--pine-700);
+  background: var(--pine-900);
 }
 .phero__bg { position: absolute; inset: 0; z-index: -2; }
-.phero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+.phero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
 .phero__veil {
   position: absolute; inset: 0;
-  background: linear-gradient(120deg, var(--pine-900) 8%, rgba(5,66,53,0.72) 55%, rgba(27,53,94,0.6));
+  background:
+    linear-gradient(115deg, rgba(7, 48, 31, 0.94) 5%, rgba(12, 69, 48, 0.7) 52%, rgba(28, 53, 94, 0.62)),
+    linear-gradient(180deg, rgba(7, 48, 31, 0.5), transparent 45%);
 }
 .phero__inner { position: relative; }
 .phero__eyebrow { color: var(--gold-soft); }
-.phero__eyebrow::before { background: var(--gold); }
-.phero__title { color: #fff; margin: 1rem 0 1.1rem; max-width: 18ch; }
-.phero__sub { color: #d7e6df; }
-.phero__curve { position: absolute; left: 0; right: 0; bottom: -1px; line-height: 0; }
-.phero__curve svg { width: 100%; height: clamp(40px, 5vw, 80px); }
+.phero__eyebrow::before { background: var(--brass); }
+.phero__title { color: #fff; margin: 1.3rem 0 1.3rem; max-width: 17ch; }
+.phero__sub { color: #c6d6ce; font-weight: 300; }
 
 /* ---------- SectionHeading ---------- */
 .sh { max-width: 62ch; }
 .sh--center { margin-inline: auto; text-align: center; }
 .sh--center .sh__text { margin-inline: auto; }
-.sh__title { margin: 0.7rem 0 0.9rem; }
+.sh--center .eyebrow::before { display: none; }
+.sh__title { margin: 1rem 0 1rem; }
 .sh--light .sh__title { color: #fff; }
-.sh--light .lead { color: #cfe0d9; }
+.sh--light .lead { color: #c6d6ce; }
 .sh--light .eyebrow { color: var(--gold-soft); }
 
 /* ---------- CTA Band ---------- */
 .ctaband {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  padding: clamp(2.6rem, 6vw, 5rem);
-  background: linear-gradient(135deg, var(--pine) 0%, var(--pine-700) 55%, var(--navy) 130%);
+  isolation: isolate;
+  border-radius: var(--radius);
+  padding: clamp(3rem, 6.5vw, 5.5rem) clamp(1.6rem, 5vw, 4rem);
+  background: linear-gradient(128deg, var(--pine) 0%, var(--pine-700) 52%, var(--navy) 128%);
   color: #fff;
   box-shadow: var(--shadow-lg);
   text-align: center;
 }
-.ctaband__blob { position: absolute; border-radius: 50%; filter: blur(46px); opacity: 0.4; }
-.ctaband__blob--1 { width: 320px; height: 320px; background: var(--gold); top: -120px; left: -80px; }
-.ctaband__blob--2 { width: 280px; height: 280px; background: var(--sky); bottom: -120px; right: -60px; opacity: 0.35; }
+.ctaband::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0);
+  background-size: 30px 30px;
+}
 .ctaband__content { position: relative; z-index: 1; }
-.ctaband h2 { color: #fff; margin: 0.8rem auto 1rem; max-width: 20ch; }
-.ctaband p { color: #dbe9e3; max-width: 52ch; margin: 0 auto 1.8rem; font-size: 1.05rem; }
+.ctaband__eyebrow { color: var(--gold-soft); }
+.ctaband__eyebrow::before { display: none; }
+.ctaband h2 { color: #fff; margin: 1rem auto 1.1rem; max-width: 19ch; }
+.ctaband p { color: #c6d6ce; max-width: 52ch; margin: 0 auto 2.2rem; font-size: 1.02rem; font-weight: 300; }
 .ctaband__actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }

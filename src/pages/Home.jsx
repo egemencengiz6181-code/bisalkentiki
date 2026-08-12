@@ -6,7 +6,7 @@ import Counter from "../components/Counter.jsx";
 import Reveal, { Stagger, StaggerItem } from "../components/Reveal.jsx";
 import { CTABand } from "../components/Shared.jsx";
 import HeroSlider from "../components/HeroSlider.jsx";
-import { PILLARS, AGE_GROUPS, APPROACH, STATS, NEWS, CONTACT, GALLERY_PHOTOS } from "../data/site.js";
+import { PILLARS, AGE_GROUPS, APPROACH, STATS, NEWS, CONTACT, GALLERY_PHOTOS, QUOTE, CONTACT_FOR } from "../data/site.js";
 import "./home.css";
 
 export default function Home() {
@@ -14,6 +14,17 @@ export default function Home() {
     <div className="home">
       {/* ---------------- HERO SLIDER ---------------- */}
       <HeroSlider />
+
+      {/* ---------------- KURUMSAL ALINTI BANDI ---------------- */}
+      <section className="quoteband">
+        <div className="container">
+          <Reveal className="quoteband__inner">
+            <span className="quoteband__mark quoteband__mark--l" aria-hidden="true">“</span>
+            <p className="quoteband__text">{QUOTE}</p>
+            <span className="quoteband__mark quoteband__mark--r" aria-hidden="true">”</span>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ---------------- WELCOME INTRO ---------------- */}
       <section className="section welcome">
@@ -196,6 +207,43 @@ export default function Home() {
                 <h3>{n.title}</h3>
                 <p>{n.excerpt}</p>
                 <Link to="/haberler" className="linkline">Devamını oku <Icon name="arrow" size={15} className="arrow" /></Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* ---------------- INSTAGRAM ŞERİDİ ---------------- */}
+      <section className="igstrip">
+        <div className="container igstrip__inner">
+          <Reveal>
+            <span className="eyebrow igstrip__eyebrow">Instagram</span>
+            <h2 className="igstrip__title">Instagram'dan Bizi Takip Edin</h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <a href={CONTACT.instagram} target="_blank" rel="noreferrer" className="btn btn-ghost igstrip__btn">
+              <span>{CONTACT.instagramHandle}</span> <Icon name="instagram" size={16} />
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------------- BİZE ULAŞIN ---------------- */}
+      <section className="section reachus">
+        <div className="container">
+          <div className="sh sh--center">
+            <Reveal>
+              <span className="eyebrow">İletişim</span>
+              <h2>Şu konularda bize<br />çekinmeden ulaşın</h2>
+            </Reveal>
+          </div>
+          <Stagger className="reachus__grid">
+            {CONTACT_FOR.map((c) => (
+              <StaggerItem key={c.title} className="reachcard">
+                <span className="reachcard__icon"><Icon name={c.icon} size={22} /></span>
+                <h3>{c.title}</h3>
+                <p>{c.text}</p>
+                <Link to="/iletisim" className="linkline">Bilgi Formu <Icon name="arrow" size={15} className="arrow" /></Link>
               </StaggerItem>
             ))}
           </Stagger>

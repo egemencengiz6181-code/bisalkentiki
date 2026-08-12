@@ -12,16 +12,12 @@ export function PageHero({ eyebrow, title, subtitle, image, accent = "var(--pine
         {image && <img src={image} alt="" />}
         <div className="phero__veil" />
       </div>
-      <span className="blob" style={{ width: 340, height: 340, background: "var(--gold-soft)", top: -80, right: -60 }} />
       <div className="container phero__inner">
         <Reveal>
           {eyebrow && <span className="eyebrow phero__eyebrow">{eyebrow}</span>}
           <h1 className="phero__title">{title}</h1>
           {subtitle && <p className="lead phero__sub max-60">{subtitle}</p>}
         </Reveal>
-      </div>
-      <div className="phero__curve" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 80C360 20 1080 20 1440 80V80H0Z" fill="var(--cream)" /></svg>
       </div>
     </section>
   );
@@ -51,17 +47,15 @@ export function CTABand({
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="ctaband__blob ctaband__blob--1" />
-          <span className="ctaband__blob ctaband__blob--2" />
           <div className="ctaband__content">
-            <span className="eyebrow" style={{ color: "var(--gold-soft)" }}>Ön Kayıt Başladı</span>
+            <span className="eyebrow ctaband__eyebrow">Ön Kayıt Başladı</span>
             <h2>{title}</h2>
             <p>{text}</p>
             <div className="ctaband__actions">
               <Link to="/iletisim" className="btn btn-gold">
-                Başvuru Yap <Icon name="arrow" size={17} className="arrow" />
+                <span>Başvuru Yap</span> <Icon name="arrow" size={15} className="arrow" />
               </Link>
-              <Link to="/anaokulu" className="btn btn-white">Programı İncele</Link>
+              <Link to="/anaokulu" className="btn btn-white"><span>Programı İncele</span></Link>
             </div>
           </div>
         </motion.div>
