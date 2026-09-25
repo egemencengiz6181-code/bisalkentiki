@@ -4,21 +4,32 @@
   padding: clamp(10rem, 17vw, 13.5rem) 0 clamp(4.5rem, 8vw, 7rem);
   overflow: hidden;
   isolation: isolate;
-  background: var(--pine-900);
+  background: var(--bis-blue-h);
 }
 .phero__bg { position: absolute; inset: 0; z-index: -2; }
-.phero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+.phero__bg img { width: 100%; height: 100%; object-fit: cover; }
 .phero__veil {
   position: absolute; inset: 0;
-  background:
-    linear-gradient(115deg, rgba(7, 48, 31, 0.94) 5%, rgba(12, 69, 48, 0.7) 52%, rgba(28, 53, 94, 0.62)),
-    linear-gradient(180deg, rgba(7, 48, 31, 0.5), transparent 45%);
+  background-color: rgba(22, 42, 75, 0.78);
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.19) 0, rgba(0,0,0,0.19) 1px, transparent 0, transparent 50%);
+  background-size: 5px 5px;
 }
 .phero__inner { position: relative; }
-.phero__eyebrow { color: var(--gold-soft); }
-.phero__eyebrow::before { background: var(--brass); }
-.phero__title { color: #fff; margin: 1.3rem 0 1.3rem; max-width: 17ch; }
-.phero__sub { color: #c6d6ce; font-weight: 300; }
+.phero__eyebrow { color: var(--bis-cream); }
+.phero__eyebrow::before { background: var(--bis-cream); }
+.phero__title {
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.18;
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  margin: 1.3rem 0;
+  max-width: 20ch;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.49);
+}
+.phero__sub { color: rgba(255, 255, 255, 0.86); font-weight: 300; }
 
 /* ---------- SectionHeading ---------- */
 .sh { max-width: 62ch; }
@@ -27,30 +38,29 @@
 .sh--center .eyebrow::before { display: none; }
 .sh__title { margin: 1rem 0 1rem; }
 .sh--light .sh__title { color: #fff; }
-.sh--light .lead { color: #c6d6ce; }
-.sh--light .eyebrow { color: var(--gold-soft); }
+.sh--light .lead { color: rgba(255, 255, 255, 0.84); }
+.sh--light .eyebrow { color: var(--bis-cream); }
 
 /* ---------- CTA Band ---------- */
 .ctaband {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  border-radius: var(--radius);
+  border-radius: 0;
   padding: clamp(3rem, 6.5vw, 5.5rem) clamp(1.6rem, 5vw, 4rem);
-  background: linear-gradient(128deg, var(--pine) 0%, var(--pine-700) 52%, var(--navy) 128%);
+  background: linear-gradient(to top, var(--bis-blue-h) 47%, var(--bis-blue-lift) 114%);
   color: #fff;
-  box-shadow: var(--shadow-lg);
   text-align: center;
 }
 .ctaband::before {
   content: "";
   position: absolute; inset: 0; z-index: -1;
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0);
-  background-size: 30px 30px;
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.16) 0, rgba(0,0,0,0.16) 1px, transparent 0, transparent 50%);
+  background-size: 5px 5px;
 }
 .ctaband__content { position: relative; z-index: 1; }
-.ctaband__eyebrow { color: var(--gold-soft); }
+.ctaband__eyebrow { color: var(--bis-cream); }
 .ctaband__eyebrow::before { display: none; }
 .ctaband h2 { color: #fff; margin: 1rem auto 1.1rem; max-width: 19ch; }
-.ctaband p { color: #c6d6ce; max-width: 52ch; margin: 0 auto 2.2rem; font-size: 1.02rem; font-weight: 300; }
+.ctaband p { color: rgba(255, 255, 255, 0.84); max-width: 52ch; margin: 0 auto 2.2rem; font-size: 1.02rem; font-weight: 300; }
 .ctaband__actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }

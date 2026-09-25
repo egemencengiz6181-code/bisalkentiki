@@ -10,14 +10,6 @@ export const CONTACT = {
   instagramHandle: "@bisalkent",
 };
 
-// Üst bar — diğer BİS kampüslerinin resmi siteleri (bisalkent.com üst şeridi)
-export const SISTER_SITES = [
-  { label: "Zekeriyaköy", href: "https://www.bisi.k12.tr/tr-TR/" },
-  { label: "Bahçeşehir", href: "https://www.bisi.k12.tr/tr-TR/" },
-  { label: "Çamlıca", href: "https://www.bisi.k12.tr/tr-TR/" },
-  { label: "Etiler STEAM", href: "https://www.bis.k12.tr" },
-];
-
 // Kurumsal vurgu bandı
 export const QUOTE = "En yüksek eğitim standartları";
 
@@ -79,28 +71,34 @@ export const BG = {
 export const AGE_GROUPS = [
   {
     code: "EYFS Junior",
-    age: "3 yaş",
+    age: "3 - 4 Yaş",
+    img: N(20),
+    campuses: "Alkent | Zekeriyaköy | Bahçeşehir | Çamlıca",
     title: "Keşif Başlıyor",
-    color: "var(--terra)",
-    tint: "#f4e7df",
+    color: "var(--bis-green)",
+    tint: "#eef2f0",
     desc: "İlk adımlar. Duyusal oyun, güvenli bağlanma ve rutinlerle çocuklar okulu sever, keşfetmeyi öğrenir.",
     points: ["Duyusal ve sezgisel öğrenme", "Öz bakım becerileri", "Oyunla İngilizce'ye ilk temas"],
   },
   {
     code: "EYFS",
-    age: "4 yaş",
+    age: "4 - 5 Yaş",
+    img: N(31),
+    campuses: "Alkent | Zekeriyaköy | Bahçeşehir | Çamlıca",
     title: "Merak Çağı",
-    color: "var(--gold)",
-    tint: "#f2ebda",
+    color: "var(--bis-blue)",
+    tint: "#eceef4",
     desc: "Sorular çoğalır. Proje temelli etkinlikler, erken okuryazarlık ve sayı sezgisiyle düşünme derinleşir.",
     points: ["Proje temelli keşif", "Erken okuryazarlık & matematik", "Sosyal-duygusal gelişim"],
   },
   {
     code: "Reception",
-    age: "5 yaş",
+    age: "5 - 6 Yaş",
+    img: N(30),
+    campuses: "Alkent | Zekeriyaköy | Bahçeşehir | Çamlıca",
     title: "İlkokula Hazırlık",
-    color: "var(--pine)",
-    tint: "#e4ede7",
+    color: "var(--bis-cream-h)",
+    tint: "#f5f1e9",
     desc: "Kendine güvenen öğrenciler. Okuryazarlık, problem çözme ve öz düzenleme becerileriyle ilkokula sağlam bir geçiş.",
     points: ["Okuma-yazma temeli", "Eleştirel düşünme", "Bağımsızlık & sorumluluk"],
   },
@@ -217,5 +215,70 @@ export const FAQ = [
   {
     q: "BİS Okulları'nın parçası mısınız?",
     a: "Evet. Alkent Anaokulu, 38 yıllık uluslararası eğitim birikimine sahip BİS Okulları ailesinin bir üyesidir.",
+  },
+];
+
+
+// ---------------------------------------------------------------------------
+// BİS kurumsal şablon verileri (biscamlica.k12.tr / bisbahcesehir.k12.tr ile
+// aynı ana sayfa düzenini beslemek için)
+// ---------------------------------------------------------------------------
+
+// Üst cream şeritteki kurumsal bağlantılar
+export const TOPBAR_LINKS = [
+  { label: "BİS Okulları", to: "/kurumsal-yapi" },
+  { label: "Kampüslerimiz", to: "/kampus" },
+  { label: "İletişim", to: "/iletisim" },
+];
+
+// logoFooter — The British School Istanbul ailesi
+export const BIS_FAMILY = [
+  { name: "BİS Schools", note: "Ulusal Okullar", href: "https://www.bisi.k12.tr/tr-TR/" },
+  { name: "BISS", note: "British International School Istanbul", href: "https://www.bis.k12.tr" },
+  { name: "BIS STEAM", note: "Etiler STEAM Kampüsü", href: "https://www.bis.k12.tr" },
+];
+
+// Ana sayfa video / kampüs turu bandı
+export const TOUR = {
+  img: N(25),
+  eyebrow: "Kampüs Turu",
+  title: "Alkent Kampüsü'nü keşfedin",
+  text: "Işıkla dolu atrium, doğa sınıfı, kütüphane ve spor salonu — çocuk ölçeğinde tasarlanmış her köşe.",
+  to: "/kampus",
+};
+
+// NOT: Aşağıdaki görüşler şu an okulun kendi pedagoji ekibinin sözleridir.
+// Referans BİS sitelerinde bu alanda gerçek veli yorumları yer alır; yayına
+// almadan önce gerçek veli görüşleriyle değiştirilmelidir.
+export const TESTIMONIALS = [
+  {
+    text: "Her çocuk kendi hızında öğrenir. Bizim işimiz o hızı fark etmek, ona alan açmak ve doğru anda doğru soruyu sormaktır.",
+    name: "BİS Alkent Pedagoji Ekibi",
+    role: "Okul Öncesi Koordinasyonu",
+  },
+  {
+    text: "Oyun, okul öncesinde bir mola değil; öğrenmenin ta kendisidir. Sınıflarımızı bu inançla kurguluyoruz.",
+    name: "BİS Alkent Pedagoji Ekibi",
+    role: "EYFS Programı",
+  },
+  {
+    text: "İngilizce bir ders saati değil, günün doğal bir parçası. Şarkıyla, hikâyeyle, oyunla içselleşiyor.",
+    name: "BİS Alkent Pedagoji Ekibi",
+    role: "İki Dilli Eğitim",
+  },
+  {
+    text: "Aileyle kurulan şeffaf iş birliği, çocuğun gelişimindeki en güçlü destektir. Kapımız her zaman açık.",
+    name: "BİS Alkent Pedagoji Ekibi",
+    role: "Rehberlik ve Aile İletişimi",
+  },
+  {
+    text: "38 yıllık BİS birikimi; öğretmen seçiminden menüye, güvenlikten müfredata kadar tek ve ortak bir kalite standardı anlamına gelir.",
+    name: "BİS Alkent Pedagoji Ekibi",
+    role: "Kurumsal Kalite",
+  },
+  {
+    text: "Doğa, dördüncü öğretmenimizdir. Bahçe ve açık hava etkinlikleri günlük programın ayrılmaz parçasıdır.",
+    name: "BİS Alkent Pedagoji Ekibi",
+    role: "Açık Hava Eğitimi",
   },
 ];

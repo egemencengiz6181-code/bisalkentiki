@@ -1,256 +1,198 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import Icon from "../components/Icon.jsx";
-import TreeMark from "../components/TreeMark.jsx";
-import Counter from "../components/Counter.jsx";
-import Reveal, { Stagger, StaggerItem } from "../components/Reveal.jsx";
-import { CTABand } from "../components/Shared.jsx";
 import HeroSlider from "../components/HeroSlider.jsx";
-import { PILLARS, AGE_GROUPS, APPROACH, STATS, NEWS, CONTACT, GALLERY_PHOTOS, QUOTE, CONTACT_FOR } from "../data/site.js";
+import { AGE_GROUPS, NEWS, QUOTE, CONTACT_FOR, TESTIMONIALS, TOUR } from "../data/site.js";
 import "./home.css";
+
+/* ---------------------------------------------------------------------------
+   Ana sayfa düzeni, kardeş BİS şubelerinin (biscamlica.k12.tr /
+   bisbahcesehir.k12.tr / bisi.k12.tr) kurumsal şablonuyla birebir aynı sırayı
+   izler:  hero slider → alıntı bandı → bölüm kartları → bölüm listesi + haberler
+   → kampüs turu bandı → görüşler → bilgi formu bandı
+--------------------------------------------------------------------------- */
 
 export default function Home() {
   return (
     <div className="home">
-      {/* ---------------- HERO SLIDER ---------------- */}
+      {/* 1 — TAM GENİŞLİK HERO SLIDER */}
       <HeroSlider />
 
-      {/* ---------------- KURUMSAL ALINTI BANDI ---------------- */}
-      <section className="quoteband">
-        <div className="container">
-          <Reveal className="quoteband__inner">
-            <span className="quoteband__mark quoteband__mark--l" aria-hidden="true">“</span>
-            <p className="quoteband__text">{QUOTE}</p>
-            <span className="quoteband__mark quoteband__mark--r" aria-hidden="true">”</span>
-          </Reveal>
+      {/* 2 — ALINTI BANDI (bannerQuote) */}
+      <section className="bq">
+        <div className="container bq__inner">
+          <span className="bq__mark" aria-hidden="true">“</span>
+          <h2 className="bq__text">{QUOTE}</h2>
+          <span className="bq__mark" aria-hidden="true">”</span>
         </div>
       </section>
 
-      {/* ---------------- WELCOME INTRO ---------------- */}
-      <section className="section welcome">
-        <div className="container welcome__grid">
-          <Reveal className="welcome__left">
-            <span className="eyebrow">Hoş geldiniz</span>
-            <h2 className="welcome__title">
-              Yaşam boyu öğrenmenin <em>neşeli başlangıcı</em>, Büyükçekmece Alkent'te.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.12} className="welcome__right">
-            <p className="lead">
-              3–5 yaş için, oyunla öğrenen, meraklı ve özgüvenli çocuklar yetiştiren bir anaokulu.
-              38 yıllık uluslararası BİS birikimi; sıcacık, ışıkla dolu ve çocuk ölçeğinde
-              tasarlanmış mekânlarla artık kapınızda.
-            </p>
-            <div className="welcome__meta">
-              <a href={CONTACT.phoneHref}><Icon name="phone" size={16} /> {CONTACT.phone}</a>
-              <a href={CONTACT.instagram} target="_blank" rel="noreferrer"><Icon name="instagram" size={16} /> {CONTACT.instagramHandle}</a>
-            </div>
-          </Reveal>
-        </div>
+      {/* 3 — BÖLÜMLERİMİZ: görsel zeminli kartlar (mainDivisionCard) */}
+      <section className="divs">
         <div className="container">
-          <Reveal className="welcome__strip" delay={0.15}>
-            {["Uluslararası birikim", "İki dilli ortam", "Oyun temelli pedagoji", "Doğayla iç içe", "Sıcak topluluk"].map((t) => (
-              <span key={t} className="welcome__chip"><TreeMark size={16} color="var(--pine)" /> {t}</span>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- PILLARS ---------------- */}
-      <section className="section pillars">
-        <div className="container">
-          <div className="pillars__head">
-            <Reveal>
-              <span className="eyebrow">Neden BİS Alkent</span>
-              <h2>Çocuğun doğal merakını<br />besleyen bir yuva</h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="lead max-46">
-                Çocuklarımız; oyun oynayarak, keşfederek ve deneyimleyerek öğrenir.
-                Her ayrıntı, bu neşeli öğrenme yolculuğu için tasarlandı.
-              </p>
-            </Reveal>
-          </div>
-          <Stagger className="grid pillars__grid">
-            {PILLARS.map((p) => (
-              <StaggerItem key={p.title} className="card pillar">
-                <span className="pillar__icon"><Icon name={p.icon} size={26} /></span>
-                <h3>{p.title}</h3>
-                <p>{p.text}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ---------------- PROGRAM / AGE GROUPS ---------------- */}
-      <section className="section program">
-        <div className="container">
-          <div className="program__head">
-            <Reveal>
-              <span className="eyebrow">Yaş Grupları</span>
-              <h2>Her yaşa özel, gelişime<br />duyarlı bir program</h2>
-            </Reveal>
-            <Reveal delay={0.1} className="program__headlink">
-              <Link to="/anaokulu" className="linkline">Tüm programı gör <Icon name="arrow" size={16} className="arrow" /></Link>
-            </Reveal>
-          </div>
-          <Stagger className="grid program__grid">
-            {AGE_GROUPS.map((g) => (
-              <StaggerItem key={g.code} className="agecard" style={{ "--tint": g.tint, "--acc": g.color }}>
-                <div className="agecard__top">
-                  <span className="agecard__age">{g.age}</span>
-                  <span className="agecard__code">{g.code}</span>
-                </div>
-                <h3>{g.title}</h3>
-                <p>{g.desc}</p>
-                <ul className="agecard__list">
-                  {g.points.map((pt) => (
-                    <li key={pt}><Icon name="star" size={14} /> {pt}</li>
-                  ))}
-                </ul>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ---------------- APPROACH (split) ---------------- */}
-      <section className="section approach-home">
-        <div className="container approach-home__grid">
-          <Reveal className="approach-home__media">
-            <img src="/images/new/unnamed-21.jpg" alt="Yaratıcı okuma köşesi" />
-            <div className="approach-home__badge">
-              <TreeMark size={40} color="#fff" />
-              <div><strong>Keşif</strong><span>her gün yeni bir macera</span></div>
-            </div>
-          </Reveal>
-          <div className="approach-home__copy">
-            <Reveal>
-              <span className="eyebrow">Eğitim Yaklaşımımız</span>
-              <h2>Öğrenmeyi bir oyun,<br />okulu bir sevinç kılıyoruz</h2>
-            </Reveal>
-            <div className="approach-home__list">
-              {APPROACH.map((a, i) => (
-                <Reveal key={a.no} delay={0.08 * i} className="approach-item">
-                  <span className="approach-item__no">{a.no}</span>
-                  <div>
-                    <h3>{a.title}</h3>
-                    <p>{a.text}</p>
+          <h2 className="secTitle">Bölümlerimiz</h2>
+          <div className="divs__grid">
+            {AGE_GROUPS.map((g, idx) => (
+              <div key={g.code} className="divs__cell" style={{ "--d": `${idx * 0.12}s` }}>
+                <Link to="/anaokulu" className="dcard" style={{ backgroundImage: `url(${g.img})` }}>
+                  <div className="dcard__inner">
+                    <h3>{g.code}</h3>
+                    <p>{g.age}</p>
+                    <span className="dcard__btn">DAHA FAZLASI</span>
                   </div>
-                </Reveal>
+                </Link>
+                <p className="dcard__campuses">
+                  <Icon name="pin" size={13} /> {g.campuses}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4 — BÖLÜM LİSTESİ (pill satırlar) + HABERLER */}
+      <section className="hsplit">
+        <div className="container hsplit__grid">
+          <div className="hsplit__left">
+            {AGE_GROUPS.map((g) => (
+              <Link to="/anaokulu" className="prow" key={g.code}>
+                <span className="prow__img" style={{ backgroundImage: `url(${g.img})` }} />
+                <span className="prow__pill">
+                  <span className="prow__title">{g.code}</span>
+                  <span className="prow__age">{g.age}</span>
+                  <Icon name="arrow" size={16} className="prow__arrow" />
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="hsplit__right">
+            <div className="newsHead">
+              <h2 className="secTitle secTitle--left">Haberler</h2>
+              <Link to="/haberler" className="newsHead__all">TÜMÜ <Icon name="arrow" size={14} /></Link>
+            </div>
+            <NewsCarousel />
+          </div>
+        </div>
+      </section>
+
+      {/* 5 — KAMPÜS TURU BANDI */}
+      <section className="tour">
+        <div className="tour__media" style={{ backgroundImage: `url(${TOUR.img})` }} aria-hidden="true" />
+        <div className="tour__veil" aria-hidden="true" />
+        <div className="container tour__content">
+          <Link to={TOUR.to} className="tour__play" aria-label={TOUR.title}>
+            <Icon name="play" size={34} />
+          </Link>
+          <span className="tour__eyebrow">{TOUR.eyebrow}</span>
+          <h2 className="tour__title">{TOUR.title}</h2>
+          <p className="tour__text">{TOUR.text}</p>
+        </div>
+      </section>
+
+      {/* 6 — GÖRÜŞLER (owl-carousel karşılığı) */}
+      <Testimonials />
+
+      {/* 7 — BİLGİ FORMU BANDI (enquirySection) */}
+      <section className="enq">
+        <div className="container enq__grid">
+          <div className="enq__left">
+            <p className="enq__lead">
+              Aşağıda belirtilen talepleriniz için bizimle form üzerinden iletişime geçebilirsiniz.
+            </p>
+            <div className="enq__items">
+              {CONTACT_FOR.map((c) => (
+                <span className="enq__item" key={c.title}>
+                  <Icon name={c.icon} size={20} /> {c.title}
+                </span>
               ))}
             </div>
-            <Reveal delay={0.2}>
-              <Link to="/yaklasim" className="btn">Yaklaşımı derinlemesine gör <Icon name="arrow" size={17} className="arrow" /></Link>
-            </Reveal>
+          </div>
+          <div className="enq__right">
+            <Link to="/iletisim" className="enq__btn">Bilgi Formu</Link>
           </div>
         </div>
       </section>
-
-      {/* ---------------- STATS ---------------- */}
-      <section className="stats">
-        <div className="container">
-          <Stagger className="stats__grid">
-            {STATS.map((s) => (
-              <StaggerItem key={s.label} className="stat">
-                <div className="stat__value"><Counter value={s.value} /><em>{s.suffix}</em></div>
-                <p>{s.label}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ---------------- GALLERY PREVIEW ---------------- */}
-      <section className="section gallery-home">
-        <div className="container">
-          <div className="sh sh--center">
-            <Reveal>
-              <span className="eyebrow">Kampüsümüzden</span>
-              <h2>Keşif için tasarlanmış<br />bir dünya</h2>
-            </Reveal>
-          </div>
-          <Stagger className="gallery-home__grid">
-            {GALLERY_PHOTOS.slice(0, 6).map((g, i) => (
-              <StaggerItem key={i} className={`gh-tile ${g.tall ? "gh-tile--tall" : ""}`}>
-                <img src={g.img} alt={g.cap} loading="lazy" />
-                <span className="gh-tile__cap">{g.cap}</span>
-              </StaggerItem>
-            ))}
-          </Stagger>
-          <Reveal className="text-center" delay={0.1}>
-            <Link to="/kampus" className="btn btn-ghost">Tüm galeriyi gör <Icon name="arrow" size={16} className="arrow" /></Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- NEWS ---------------- */}
-      <section className="section news-home">
-        <div className="container">
-          <div className="program__head">
-            <Reveal>
-              <span className="eyebrow">Haberler</span>
-              <h2>Alkent'ten güncel</h2>
-            </Reveal>
-            <Reveal delay={0.1} className="program__headlink">
-              <Link to="/haberler" className="linkline">Tümü <Icon name="arrow" size={16} className="arrow" /></Link>
-            </Reveal>
-          </div>
-          <Stagger className="grid news-home__grid">
-            {NEWS.map((n) => (
-              <StaggerItem key={n.title} className="card newscard">
-                <div className="newscard__top" style={{ "--acc": n.color }}>
-                  <span className="newscard__tag">{n.tag}</span>
-                  <span className="newscard__date">{n.date}</span>
-                </div>
-                <h3>{n.title}</h3>
-                <p>{n.excerpt}</p>
-                <Link to="/haberler" className="linkline">Devamını oku <Icon name="arrow" size={15} className="arrow" /></Link>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ---------------- INSTAGRAM ŞERİDİ ---------------- */}
-      <section className="igstrip">
-        <div className="container igstrip__inner">
-          <Reveal>
-            <span className="eyebrow igstrip__eyebrow">Instagram</span>
-            <h2 className="igstrip__title">Instagram'dan Bizi Takip Edin</h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <a href={CONTACT.instagram} target="_blank" rel="noreferrer" className="btn btn-ghost igstrip__btn">
-              <span>{CONTACT.instagramHandle}</span> <Icon name="instagram" size={16} />
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- BİZE ULAŞIN ---------------- */}
-      <section className="section reachus">
-        <div className="container">
-          <div className="sh sh--center">
-            <Reveal>
-              <span className="eyebrow">İletişim</span>
-              <h2>Şu konularda bize<br />çekinmeden ulaşın</h2>
-            </Reveal>
-          </div>
-          <Stagger className="reachus__grid">
-            {CONTACT_FOR.map((c) => (
-              <StaggerItem key={c.title} className="reachcard">
-                <span className="reachcard__icon"><Icon name={c.icon} size={22} /></span>
-                <h3>{c.title}</h3>
-                <p>{c.text}</p>
-                <Link to="/iletisim" className="linkline">Bilgi Formu <Icon name="arrow" size={15} className="arrow" /></Link>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      <CTABand />
     </div>
+  );
+}
+
+/* ---------------- Haberler karüseli (carousel-indicators) ---------------- */
+function NewsCarousel() {
+  const [i, setI] = useState(0);
+  const n = NEWS.length;
+
+  useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % n), 7000);
+    return () => clearInterval(t);
+  }, [n]);
+
+  const item = NEWS[i];
+  return (
+    <div className="ncar">
+      <div className="ncar__item" key={i}>
+        <span className="ncar__date">{item.date} · {item.tag}</span>
+        <h3 className="ncar__title">{item.title}</h3>
+        <p className="ncar__text">{item.excerpt}</p>
+        <Link to="/haberler" className="ncar__link">DEVAMINI OKU <Icon name="arrow" size={14} /></Link>
+      </div>
+      <div className="ncar__dots" role="tablist">
+        {NEWS.map((_, idx) => (
+          <button
+            key={idx}
+            role="tab"
+            aria-selected={idx === i}
+            aria-label={`Haber ${idx + 1}`}
+            className={idx === i ? "is-active" : ""}
+            onClick={() => setI(idx)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Görüşler karüseli ---------------- */
+function Testimonials() {
+  const [i, setI] = useState(0);
+  const per = 3;
+  const pages = Math.ceil(TESTIMONIALS.length / per);
+
+  useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % pages), 9000);
+    return () => clearInterval(t);
+  }, [pages]);
+
+  const shown = TESTIMONIALS.slice(i * per, i * per + per);
+  return (
+    <section className="tst">
+      <div className="container">
+        <h2 className="secTitle">Bizim Hakkımızda</h2>
+        <div className="tst__grid">
+          {shown.map((t) => (
+            <blockquote className="tst__card" key={t.text}>
+              <span className="tst__mark" aria-hidden="true">“</span>
+              <p>{t.text}</p>
+              <footer>
+                <strong>{t.name}</strong>
+                <span>{t.role}</span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+        <div className="tst__dots" role="tablist">
+          {Array.from({ length: pages }).map((_, idx) => (
+            <button
+              key={idx}
+              role="tab"
+              aria-selected={idx === i}
+              aria-label={`Görüş grubu ${idx + 1}`}
+              className={idx === i ? "is-active" : ""}
+              onClick={() => setI(idx)}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

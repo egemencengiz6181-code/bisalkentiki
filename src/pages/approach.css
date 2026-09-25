@@ -3,12 +3,12 @@
 .principle__icon {
   flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%;
   display: grid; place-items: center;
-  border: 1px solid var(--line); color: var(--terra);
+  border: 1px solid rgba(28, 53, 94, 0.18); color: var(--bis-blue);
   transition: background 0.4s, color 0.4s, border-color 0.4s;
 }
 .principle h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
 .principle p { color: var(--ink-soft); font-size: 0.94rem; font-weight: 300; }
-.principle:hover .principle__icon { background: var(--terra); border-color: var(--terra); color: #fff; }
+.principle:hover .principle__icon { background: var(--bis-green); border-color: var(--bis-green); color: var(--bis-cream); }
 
 .method { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
 .method__card {

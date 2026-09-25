@@ -1,135 +1,110 @@
+/* ===========================================================================
+   HERO SLIDER — BİS kurumsal banner'ı (#homeBanner / .bannerShadow eşleniği)
+   =========================================================================== */
+
 .hs {
   position: relative;
-  height: 100svh;
-  min-height: 660px;
+  height: 80vh;
+  min-height: 520px;
   overflow: hidden;
-  isolation: isolate;
-  display: flex;
-  align-items: flex-end;
+  background: var(--bis-blue-h);
 }
-.hs__stage { position: absolute; inset: 0; z-index: -2; background: var(--pine-900); }
+
+.hs__stage { position: absolute; inset: 0; }
 .hs__slide {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
   will-change: transform, opacity;
 }
-.hs__veil {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, rgba(7, 48, 31, 0.58) 0%, rgba(7, 48, 31, 0.06) 32%, rgba(7, 48, 31, 0.28) 58%, rgba(7, 48, 31, 0.9) 100%),
-    linear-gradient(90deg, rgba(7, 48, 31, 0.55), rgba(7, 48, 31, 0.05) 60%);
+
+/* Referanstaki .bannerShadow: düz koyu katman + 5px çapraz tram deseni */
+.hs__shadow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.19);
+  background-size: 5px 5px;
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.19) 0, rgba(0,0,0,0.19) 1px, transparent 0, transparent 50%);
 }
 
-/* ---- İçerik ---- */
-.hs__content {
-  position: relative; z-index: 2;
-  padding-bottom: clamp(8rem, 17vh, 11rem);
-  max-width: 960px;
+/* .bannerContext — dikeyde ortalı, ortalanmış metin, gölgeli */
+.hs__caption {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.49);
 }
-.hs__eyebrow {
-  display: inline-flex; align-items: center; gap: 0.85rem;
-  color: var(--gold-soft);
-  font-weight: 400; font-size: clamp(0.64rem, 1.1vw, 0.74rem);
-  letter-spacing: 0.36em; text-transform: uppercase; margin-bottom: 1.4rem;
-}
-.hs__eyebrow::before { content: ""; width: 42px; height: 1px; background: var(--brass); }
 
 .hs__title {
-  color: #fff; font-weight: 400;
-  font-size: clamp(2.5rem, 6.2vw, 5.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  text-shadow: 0 6px 50px rgba(0, 0, 0, 0.3);
-  max-width: 15ch;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 4vw, 3.1rem);
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  margin: 0;
 }
 
-.hs__actions { display: flex; align-items: center; gap: 1.6rem; margin-top: 2.4rem; flex-wrap: wrap; }
-.hs__ghost {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  color: #fff; font-weight: 400; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
-  padding: 0.75rem 0; position: relative;
-}
-.hs__ghost::after {
-  content: ""; position: absolute; left: 0; bottom: 0.35rem; width: 100%; height: 1px;
-  background: rgba(255, 255, 255, 0.55);
-  transform: scaleX(0.55); transform-origin: left; transition: transform 0.45s var(--ease), background 0.3s;
-}
-.hs__ghost:hover::after { transform: scaleX(1); background: var(--gold); }
-
-/* ---- Alt kontrol şeridi ---- */
-.hs__bar {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
-  padding-bottom: clamp(1.6rem, 4vh, 2.6rem);
-  border-top: 0;
-}
-.hs__bar-inner {
-  display: flex; align-items: center; gap: clamp(1.2rem, 4vw, 3rem);
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+.hs__sub {
+  margin: 1rem 0 2.2rem;
+  font-size: clamp(0.72rem, 1.1vw, 0.92rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;   /* referans: .bannerContext p { letter-spacing: 10px } */
+  color: var(--bis-cream);
 }
 
-.hs__count {
-  display: inline-flex; align-items: center; gap: 0.7rem;
-  font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.55); flex-shrink: 0;
+.hs__btn {
+  display: inline-block;
+  padding: 10px 26px;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: none;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
-.hs__count em {
-  font-family: var(--font-display); font-style: normal; font-size: 1.6rem;
-  color: #fff; line-height: 1;
-}
-.hs__count i { width: 22px; height: 1px; background: rgba(255, 255, 255, 0.35); display: inline-block; }
-
-.hs__track { display: flex; gap: 0.5rem; flex: 1; max-width: 340px; }
-.hs__seg {
-  flex: 1; background: none; border: none; padding: 8px 0; cursor: pointer;
-}
-.hs__seg span {
-  display: block; height: 2px; background: rgba(255, 255, 255, 0.25);
-  transition: background 0.4s var(--ease), transform 0.4s var(--ease);
-  transform-origin: left;
-}
-.hs__seg:hover span { background: rgba(255, 255, 255, 0.5); }
-.hs__seg.is-active span { background: var(--gold); transform: scaleY(2); }
-
-.hs__nav { display: flex; gap: 0.6rem; margin-left: auto; flex-shrink: 0; }
-.hs__arrow {
-  width: 46px; height: 46px; display: grid; place-items: center;
-  background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.24);
-  color: #fff; cursor: pointer; border-radius: 50%;
-  backdrop-filter: blur(6px);
-  transition: background 0.35s, border-color 0.35s, color 0.35s;
-}
-.hs__arrow:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-900); }
-
-/* ---- Keşfet işareti ---- */
-.hs__scroll {
-  position: absolute; right: clamp(1.5rem, 4vw, 3rem); bottom: 42%;
-  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.9rem;
-}
-.hs__scrolltext {
-  writing-mode: vertical-rl;
-  font-size: 0.62rem; letter-spacing: 0.34em; text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-}
-.hs__scrollline { width: 1px; height: 62px; background: rgba(255, 255, 255, 0.25); position: relative; overflow: hidden; }
-.hs__scrollline::after {
-  content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 26px;
-  background: var(--gold); animation: hsline 2.4s var(--ease) infinite;
-}
-@keyframes hsline {
-  0% { transform: translateY(-100%); }
-  60%, 100% { transform: translateY(240%); }
+.hs__btn:hover {
+  background: var(--bis-cream);
+  border-color: var(--bis-cream);
+  color: var(--bis-green-h);
+  font-weight: 700;
 }
 
-@media (max-width: 900px) {
-  .hs { min-height: 560px; }
-  .hs__content { padding-bottom: clamp(7rem, 20vh, 9rem); }
-  .hs__title { font-size: clamp(2.1rem, 8.5vw, 3rem); max-width: 100%; }
-  .hs__nav { display: none; }
-  .hs__track { max-width: none; }
-  .hs__scroll { display: none; }
+/* owl-dots eşleniği */
+.hs__dots {
+  position: absolute;
+  z-index: 4;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
 }
-@media (max-width: 560px) {
-  .hs__count em { font-size: 1.3rem; }
-  .hs__actions { gap: 1.2rem; margin-top: 1.9rem; }
+.hs__dots button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bis-cream-h);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hs__dots button.is-active { background: var(--bis-red); }
+
+@media (max-width: 680px) {
+  .hs { height: 72vh; min-height: 440px; }
+  .hs__sub { letter-spacing: 0.3em; }
 }

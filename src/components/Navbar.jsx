@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { CONTACT, SISTER_SITES } from "../data/site.js";
+import { CONTACT, TOPBAR_LINKS } from "../data/site.js";
 import { MENU } from "../data/institutional.js";
 import Icon from "./Icon.jsx";
 import TreeMark from "./TreeMark.jsx";
@@ -36,23 +36,20 @@ export default function Navbar() {
   return (
     <>
       <header className={`hdr ${scrolled ? "hdr--solid" : ""}`}>
-        {/* Üst utility bar — diğer BİS kampüsleri */}
+        {/* Üst cream şerit — referanstaki .firstNav */}
         <div className="hdr__top">
           <div className="container hdr__top-inner">
-            <span className="hdr__toplabel">Diğer Kampüsler</span>
-            <nav className="hdr__sisters">
-              {SISTER_SITES.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="hdr__util">
-                  {s.label}
-                  <span className="hdr__utilsub">Resmi Web Sitesi</span>
-                </a>
+            <nav className="hdr__toplinks">
+              {TOPBAR_LINKS.map((l) => (
+                <Link key={l.label} to={l.to} className="hdr__util">{l.label}</Link>
               ))}
             </nav>
-            <span className="hdr__topsep" aria-hidden="true" />
-            <button className="hdr__iconbtn" aria-label="Ara" onClick={() => setSearch(true)}>
-              <Icon name="search" size={16} />
+            <button className="hdr__util hdr__iconbtn" aria-label="Ara" onClick={() => setSearch(true)}>
+              <Icon name="search" size={14} />
             </button>
-            <span className="hdr__lang"><span className="hdr__flag">TR</span></span>
+            <span className="hdr__lang">
+              <span className="hdr__langon">Türkçe</span>
+            </span>
           </div>
         </div>
 
@@ -64,22 +61,15 @@ export default function Navbar() {
           </button>
 
           <Link to="/" className="hdr__logo" aria-label="Ana sayfa">
-            <img src="/bis-logo-white.png" alt="BİS Alkent" className="hdr__logo-light" />
-            <img src="/bis-logo.png" alt="BİS Alkent" className="hdr__logo-dark" />
+            <img src="/bis-logo-white.png" alt="BİS Alkent" className="hdr__logo-img" />
           </Link>
 
           <Link to="/iletisim" className="hdr__info">
-            <span className="hdr__infotext">Bilgi Formu</span>
+            <span className="hdr__infotext">BİLGİ FORMU</span>
             <span className="hdr__infoic"><Icon name="arrow" size={15} /></span>
           </Link>
         </div>
       </header>
-
-      {/* Yan dikey sekme */}
-      <Link to="/iletisim" className="sidetab">
-        <Icon name="edit" size={15} />
-        <span>Bilgi Formu</span>
-      </Link>
 
       {/* Arama overlay */}
       <AnimatePresence>

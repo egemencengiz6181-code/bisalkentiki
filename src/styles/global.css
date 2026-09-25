@@ -42,6 +42,20 @@
   --font-body: "Jost", "Gill Sans", "Gill Sans MT", system-ui, sans-serif;
 
   --track: 0.26em; /* kurumsal versal harf aralığı */
+
+  /* ---- BİS kurumsal şablon tokenları (biscamlica / bisbahcesehir / bisi ile birebir) ---- */
+  --bis-blue: #1C355E;
+  --bis-blue-h: #162a4b;
+  --bis-blue-lift: #274b85;
+  --bis-green: #005745;
+  --bis-green-h: #004a3b;
+  --bis-cream: #B2A185;
+  --bis-cream-h: #9c815a;
+  --bis-gray: #e5ded1;
+  --bis-gray-2: #d7cfc0;
+  --bis-lightcream: #f8f5ef;
+  --bis-red: #f30000;
+
 }
 
 *,
@@ -91,12 +105,12 @@ h3, h4 { letter-spacing: -0.005em; }
   font-size: 0.72rem;
   letter-spacing: var(--track);
   text-transform: uppercase;
-  color: var(--pine);
+  color: var(--bis-cream-h);
 }
 .eyebrow::before {
   content: "";
   width: 30px; height: 1px;
-  background: var(--brass);
+  background: var(--bis-cream);
 }
 
 h1 { font-size: clamp(2.5rem, 6vw, 4.6rem); }
@@ -107,69 +121,58 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.75rem); }
 
 /* ---------- Buttons ---------- */
 .btn {
-  --bg: var(--pine);
-  --fg: #fff;
+  --bg: var(--bis-blue);
+  --fg: var(--bis-cream);
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
-  padding: 1rem 1.9rem;
-  border-radius: 2px;
+  padding: 0.95rem 2rem;
+  border-radius: 30px;
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   background: var(--bg);
   color: var(--fg);
   border: 1px solid var(--bg);
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  transition: color 0.4s var(--ease), border-color 0.4s var(--ease), background 0.4s var(--ease);
+  transition: background 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
-.btn::after {
-  content: "";
-  position: absolute; inset: 0; z-index: -1;
-  background: var(--navy);
-  transform: translateY(101%);
-  transition: transform 0.45s var(--ease);
-}
-.btn:hover::after { transform: translateY(0); }
-.btn:hover { border-color: var(--navy); }
+.btn:hover { background: var(--bis-green); border-color: var(--bis-green); color: var(--bis-cream); }
 .btn .arrow { transition: transform 0.4s var(--ease); }
 .btn:hover .arrow { transform: translateX(5px); }
 
-.btn-gold { --bg: var(--gold); --fg: var(--navy-900); }
-.btn-gold::after { background: var(--pine); }
-.btn-gold:hover { color: #fff; border-color: var(--pine); }
+/* Cream dolgulu — koyu zeminlerde birincil eylem */
+.btn-gold { --bg: var(--bis-cream); --fg: var(--bis-blue-h); }
+.btn-gold:hover { background: var(--bis-green); border-color: var(--bis-green); color: var(--bis-cream); }
 
-.btn-ghost { --bg: transparent; --fg: var(--pine); border-color: var(--line); }
-.btn-ghost::after { background: var(--pine); }
-.btn-ghost:hover { color: #fff; border-color: var(--pine); }
+/* Çerçeveli — açık zeminlerde ikincil eylem */
+.btn-ghost { --bg: transparent; --fg: var(--bis-blue); border-color: var(--bis-blue); }
+.btn-ghost:hover { background: var(--bis-blue); color: var(--bis-cream); border-color: var(--bis-blue); }
 
-.btn-white { --bg: #fff; --fg: var(--pine); }
-.btn-white::after { background: var(--gold); }
-.btn-white:hover { color: var(--navy-900); border-color: var(--gold); }
+/* Koyu zeminde çerçeveli */
+.btn-white { --bg: transparent; --fg: #fff; border-color: #fff; }
+.btn-white:hover { background: var(--bis-cream); border-color: var(--bis-cream); color: var(--bis-green-h); }
 
 /* Alt çizgili metin bağlantısı */
 .linkline {
   display: inline-flex; align-items: center; gap: 0.55rem;
-  font-weight: 500; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--pine); padding-bottom: 4px;
-  background-image: linear-gradient(var(--brass), var(--brass));
+  font-weight: 700; font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--bis-blue); padding-bottom: 4px;
+  background-image: linear-gradient(var(--bis-cream), var(--bis-cream));
   background-size: 100% 1px; background-repeat: no-repeat; background-position: 0 100%;
   transition: color 0.3s;
 }
 .linkline .arrow { transition: transform 0.35s var(--ease); }
-.linkline:hover { color: var(--navy); }
+.linkline:hover { color: var(--bis-green); }
 .linkline:hover .arrow { transform: translateX(5px); }
 
 /* ---------- Cards ---------- */
 .card {
   background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border: 1px solid rgba(28, 53, 94, 0.1);
+  border-radius: 0;
   box-shadow: none;
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.4s;
 }
