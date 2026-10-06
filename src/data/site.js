@@ -81,7 +81,7 @@ export const AGE_GROUPS = [
     points: ["Duyusal ve sezgisel öğrenme", "Öz bakım becerileri", "Oyunla İngilizce'ye ilk temas"],
   },
   {
-    code: "EYFS",
+    code: "EYFS1",
     age: "4 - 5 Yaş",
     img: N(31),
     campuses: "Alkent | Zekeriyaköy | Bahçeşehir | Çamlıca",
@@ -92,7 +92,7 @@ export const AGE_GROUPS = [
     points: ["Proje temelli keşif", "Erken okuryazarlık & matematik", "Sosyal-duygusal gelişim"],
   },
   {
-    code: "Reception",
+    code: "EYFS2",
     age: "5 - 6 Yaş",
     img: N(30),
     campuses: "Alkent | Zekeriyaköy | Bahçeşehir | Çamlıca",
@@ -113,7 +113,7 @@ export const PILLARS = [
   {
     icon: "globe",
     title: "Uluslararası Bakış",
-    text: "38 yıllık BİS birikimiyle; kültürel zenginliği anlayan, dünya vatandaşı bireyler yetişir.",
+    text: "40 yıllık BİS birikimiyle; kültürel zenginliği anlayan, dünya vatandaşı bireyler yetişir.",
   },
   {
     icon: "leaf",
@@ -162,7 +162,7 @@ export const DAY_FLOW = [
 ];
 
 export const STATS = [
-  { value: "38", suffix: "yıl", label: "BİS eğitim birikimi" },
+  { value: "40", suffix: "yıl", label: "BİS eğitim birikimi" },
   { value: "3–5", suffix: "yaş", label: "Okul öncesi dönem" },
   { value: "4", suffix: "kampüs", label: "Türkiye genelinde" },
   { value: "1", suffix: "aile", label: "Sıcak bir topluluk" },
@@ -241,7 +241,7 @@ export const NEWS_FEATURED_BODY =
 export const FAQ = [
   {
     q: "Hangi yaş gruplarını kabul ediyorsunuz?",
-    a: "Okul öncesi programımız 3 yaş (EYFS Junior), 4 yaş (EYFS) ve 5 yaş (Reception) gruplarını kapsar.",
+    a: "Okul öncesi programımız 3-4 yaş (EYFS Junior), 4-5 yaş (EYFS1) ve 5-6 yaş (EYFS2) gruplarını kapsar.",
   },
   {
     q: "Eğitim dili nedir?",
@@ -253,7 +253,7 @@ export const FAQ = [
   },
   {
     q: "BİS Okulları'nın parçası mısınız?",
-    a: "Evet. Alkent Anaokulu, 38 yıllık uluslararası eğitim birikimine sahip BİS Okulları ailesinin bir üyesidir.",
+    a: "Evet. Alkent Anaokulu, 40 yıllık uluslararası eğitim birikimine sahip BİS Okulları ailesinin bir üyesidir.",
   },
 ];
 
@@ -311,7 +311,7 @@ export const TESTIMONIALS = [
     role: "Rehberlik ve Aile İletişimi",
   },
   {
-    text: "38 yıllık BİS birikimi; öğretmen seçiminden menüye, güvenlikten müfredata kadar tek ve ortak bir kalite standardı anlamına gelir.",
+    text: "40 yıllık BİS birikimi; öğretmen seçiminden menüye, güvenlikten müfredata kadar tek ve ortak bir kalite standardı anlamına gelir.",
     name: "BİS Alkent Pedagoji Ekibi",
     role: "Kurumsal Kalite",
   },
@@ -338,7 +338,7 @@ export const ABOUT_VALUES = [
 ];
 
 export const ABOUT_CHIPS = [
-  { icon: "star", label: "38 yıllık deneyim" },
+  { icon: "star", label: "40 yıllık deneyim" },
   { icon: "globe", label: "Uluslararası anlayış" },
   { icon: "users", label: "4 kampüs" },
 ];
@@ -386,7 +386,7 @@ export const CURRICULUM = [
 
 // İletişim formu — yaş grubu seçenekleri
 export const AGE_OPTIONS = [
-  "3 yaş (EYFS Junior)",
-  "4 yaş (EYFS)",
-  "5 yaş (Reception)",
+  "3-4 yaş (EYFS Junior)",
+  "4-5 yaş (EYFS1)",
+  "5-6 yaş (EYFS2)",
 ];

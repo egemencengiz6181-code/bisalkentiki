@@ -52,7 +52,7 @@ export const PAGES = {
         paragraphs: [
           "In Turkish, according to the Turkish Language Association (TDK), \"bis\" means the repetition of something admired or applauded — an encore. At BIS Schools we place that meaning at the centre of our educational philosophy.",
           "For us, \"a second time\" means that education begins first in the family and the community, and that school takes on a complementary, reinforcing role built on that foundation. Our task at BIS is to reinforce the values children bring from home with knowledge, skill and experience at school.",
-          "With more than thirty-nine years of educational experience and high quality standards, we are committed to sustaining the same strong approach across our schools.",
+          "With forty years of educational experience and high quality standards, we are committed to sustaining the same strong approach across our schools.",
         ],
         image: N(24),
         imageSide: "left",
@@ -399,7 +399,7 @@ export const PAGES = {
         type: "faq",
         items: [
           { q: "Do BIS Schools accept Turkish citizens?", a: "Yes. BIS Schools are our national schools, established to serve students who are citizens of the Republic of Türkiye. Our students benefit fully from the intensive English programme and the international education standards the school offers." },
-          { q: "What does your curriculum cover?", a: "Our schools follow the curriculum of the Turkish Ministry of National Education (MEB). That curriculum is enriched by nearly forty years of experience at The British School Istanbul and by an intensive language programme taught alongside native English-speaking teachers." },
+          { q: "What does your curriculum cover?", a: "Our schools follow the curriculum of the Turkish Ministry of National Education (MEB). That curriculum is enriched by forty years of experience at The British School Istanbul and by an intensive language programme taught alongside native English-speaking teachers." },
           { q: "Which teachers deliver the English lessons?", a: "Our priority is that your child learns the language with the most natural and accurate pronunciation. For that reason all lessons delivered in English are taught by native-speaker teachers who are specialists in their field." },
           { q: "What is the language proficiency of your Turkish teachers?", a: "Our teachers for lessons delivered in Turkish are selected carefully from professionals who, alongside expertise in their own subject, are fluent in both Turkish and English and communicate with full bilingual competence." },
           { q: "How is the international setting reflected in the student profile?", a: "Our school aims for a multicultural structure. To create a balanced, global learning atmosphere we offer a setting where Turkish, dual-national and international students learn side by side." },

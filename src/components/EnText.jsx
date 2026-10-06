@@ -18,7 +18,8 @@ const EN_TERMS = [
   "BIS Schools",
   "BIS STEAM",
   "EYFS Junior",
-  "Reception",
+  "EYFS1",
+  "EYFS2",
   "BISS",
   "EYFS",
 ];

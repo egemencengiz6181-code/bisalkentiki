@@ -52,7 +52,7 @@ export const PAGES = {
         paragraphs: [
           "Türk Dil Kurumu'na (TDK) göre \"BİS\", beğenilen veya takdir edilen bir şeyin ikinci kez tekrarlanması anlamına gelir. BİS Schools olarak bu anlamı, eğitim felsefemizin merkezine yerleştiriyoruz.",
           "Bizim için \"ikinci kez\", eğitimin ilk olarak aile ve toplumda başladığı, okulun ise bu temelin üzerine inşa edilen tamamlayıcı ve güçlendirici bir rol üstlendiği anlamını taşır. BİS olarak görevimiz; çocukların aileden getirdiği değerleri, okul ortamında bilgi, beceri ve deneyimle perçinlemektir.",
-          "Otuz dokuz yılı aşkın eğitim tecrübemiz ve yüksek kalite standartlarımızla, okullarımızda aynı güçlü eğitim anlayışını sürdürmeyi taahhüt ediyoruz.",
+          "Kırk yıllık eğitim tecrübemiz ve yüksek kalite standartlarımızla, okullarımızda aynı güçlü eğitim anlayışını sürdürmeyi taahhüt ediyoruz.",
         ],
         image: N(24),
         imageSide: "left",
@@ -399,7 +399,7 @@ export const PAGES = {
         type: "faq",
         items: [
           { q: "BİS Okulları Türk vatandaşı öğrencileri kabul ediyor mu?", a: "Evet. BİS Okulları, Türkiye Cumhuriyeti vatandaşı öğrencilere hizmet vermek amacıyla kurulmuş ulusal okullarımızdır. Öğrencilerimiz, okulumuzun sunduğu yoğun İngilizce programı ve uluslararası eğitim standartlarından tam kapasiteyle yararlanabilir." },
-          { q: "Müfredatınızın içeriği nedir?", a: "Okullarımızda Millî Eğitim Bakanlığı (MEB) müfredatı esas alınır. Ancak bu müfredat, The British School Istanbul'un kırk yıla yaklaşan birikimiyle harmanlanarak, anadili İngilizce olan öğretmenler eşliğinde yoğun bir dil programıyla zenginleştirilmiştir." },
+          { q: "Müfredatınızın içeriği nedir?", a: "Okullarımızda Millî Eğitim Bakanlığı (MEB) müfredatı esas alınır. Ancak bu müfredat, The British School Istanbul'un kırk yıllık birikimiyle harmanlanarak, anadili İngilizce olan öğretmenler eşliğinde yoğun bir dil programıyla zenginleştirilmiştir." },
           { q: "İngilizce dersleri hangi öğretmenler tarafından veriliyor?", a: "Çocuğunuzun dili en doğal ve doğru telaffuzla öğrenmesi önceliğimizdir. Bu nedenle İngilizce yürütülen tüm dersler, anadili İngilizce olan (native speaker), alanında uzman öğretmenler tarafından gerçekleştirilir." },
           { q: "Türk öğretmenlerinizin dil yeterliliği ne düzeyde?", a: "Türkçe yürütülen derslerdeki öğretmenlerimiz; kendi alanlarındaki uzmanlıklarının yanı sıra hem Türkçeyi hem İngilizceyi akıcı kullanabilen, çift dilli (bilingual) iletişim yetkinliğine sahip profesyoneller arasından titizlikle seçilir." },
           { q: "Uluslararası ortamın öğrenci profiline yansıması nasıl?", a: "Okulumuzda çok kültürlü bir yapı hedeflenir. Dengeli ve küresel bir öğrenme atmosferi oluşturmak için Türk, çift uyruklu ve yabancı uyruklu öğrencilerin bir arada eğitim aldığı bir ortam sunulur." },

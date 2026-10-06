@@ -79,7 +79,7 @@ export const AGE_GROUPS = [
     points: ["Sensory and intuitive learning", "Self-care skills", "First contact with English through play"],
   },
   {
-    code: "EYFS",
+    code: "EYFS1",
     age: "Ages 4 - 5",
     img: N(31),
     campuses: "Alkent | Zekeriyaköy | Bahçeşehir | Çamlıca",
@@ -90,7 +90,7 @@ export const AGE_GROUPS = [
     points: ["Project-based discovery", "Early literacy & mathematics", "Social and emotional growth"],
   },
   {
-    code: "Reception",
+    code: "EYFS2",
     age: "Ages 5 - 6",
     img: N(30),
     campuses: "Alkent | Zekeriyaköy | Bahçeşehir | Çamlıca",
@@ -111,7 +111,7 @@ export const PILLARS = [
   {
     icon: "globe",
     title: "An International Outlook",
-    text: "With 38 years of BIS experience, children grow into global citizens who understand cultural richness.",
+    text: "With 40 years of BIS experience, children grow into global citizens who understand cultural richness.",
   },
   {
     icon: "leaf",
@@ -160,7 +160,7 @@ export const DAY_FLOW = [
 ];
 
 export const STATS = [
-  { value: "38", suffix: "years", label: "of BIS education experience" },
+  { value: "40", suffix: "years", label: "of BIS education experience" },
   { value: "3–5", suffix: "age", label: "The preschool years" },
   { value: "4", suffix: "campuses", label: "Across Türkiye" },
   { value: "1", suffix: "family", label: "A warm community" },
@@ -237,7 +237,7 @@ export const NEWS_FEATURED_BODY =
 export const FAQ = [
   {
     q: "Which age groups do you accept?",
-    a: "Our preschool programme covers EYFS Junior (age 3), EYFS (age 4) and Reception (age 5).",
+    a: "Our preschool programme covers EYFS Junior (ages 3-4), EYFS1 (ages 4-5) and EYFS2 (ages 5-6).",
   },
   {
     q: "What is the language of instruction?",
@@ -249,7 +249,7 @@ export const FAQ = [
   },
   {
     q: "Are you part of the BIS Schools family?",
-    a: "Yes. Alkent Preschool is a member of the BIS Schools family, with 38 years of international education experience.",
+    a: "Yes. Alkent Preschool is a member of the BIS Schools family, with 40 years of international education experience.",
   },
 ];
 
@@ -298,7 +298,7 @@ export const TESTIMONIALS = [
     role: "Guidance & Family Communication",
   },
   {
-    text: "38 years of BIS experience means one shared quality standard — from teacher selection to the lunch menu, from safeguarding to the curriculum.",
+    text: "40 years of BIS experience means one shared quality standard — from teacher selection to the lunch menu, from safeguarding to the curriculum.",
     name: "BIS Alkent Pedagogy Team",
     role: "Institutional Quality",
   },
@@ -323,7 +323,7 @@ export const ABOUT_VALUES = [
 ];
 
 export const ABOUT_CHIPS = [
-  { icon: "star", label: "38 years of experience" },
+  { icon: "star", label: "40 years of experience" },
   { icon: "globe", label: "An international outlook" },
   { icon: "users", label: "4 campuses" },
 ];
@@ -367,7 +367,7 @@ export const CURRICULUM = [
 ];
 
 export const AGE_OPTIONS = [
-  "Age 3 (EYFS Junior)",
-  "Age 4 (EYFS)",
-  "Age 5 (Reception)",
+  "Ages 3-4 (EYFS Junior)",
+  "Ages 4-5 (EYFS1)",
+  "Ages 5-6 (EYFS2)",
 ];

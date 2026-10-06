@@ -62,9 +62,9 @@ export const UI = {
     // ---- Hakkımızda ----
     "about.eyebrow": "Hakkımızda",
     "about.title": "Uluslararası birikimle nitelikli eğitim",
-    "about.subtitle": "BİS Alkent Anaokulu, 38 yıllık uluslararası eğitim deneyimine sahip BİS Okulları ailesinin en genç ve en neşeli üyesi.",
+    "about.subtitle": "BİS Alkent Anaokulu, 40 yıllık uluslararası eğitim deneyimine sahip BİS Okulları ailesinin en genç ve en neşeli üyesi.",
     "about.intro.eyebrow": "BİS Okulları",
-    "about.intro.title": "Kırk yıla yaklaşan bir eğitim geleneği",
+    "about.intro.title": "Kırk yıllık bir eğitim geleneği",
     "about.intro.p1": "BİS Okulları, kuruluşundan bu yana Türk ve yabancı öğrencileri bir arada ağırlayan, uluslararası bir eğitim anlayışını benimseyen bir kurumdur. Amacımız; mutlu, özgüvenli ve global bakış açısına sahip dünya vatandaşları yetiştirmektir.",
     "about.intro.p2": "Alkent şubemiz, bu köklü birikimi okul öncesi döneme taşıyor. Büyükçekmece'de, çocukların hayata dair ilk adımlarını neşe, keşif ve sevgiyle atmalarını sağlayan sıcak bir yuva kuruyoruz.",
     "about.imgtag": "Köklerimiz derinde",
@@ -257,9 +257,9 @@ export const UI = {
     // ---- About ----
     "about.eyebrow": "About Us",
     "about.title": "Quality education built on international experience",
-    "about.subtitle": "BIS Alkent Preschool is the youngest and most joyful member of the BIS Schools family, with 38 years of international education experience.",
+    "about.subtitle": "BIS Alkent Preschool is the youngest and most joyful member of the BIS Schools family, with 40 years of international education experience.",
     "about.intro.eyebrow": "BIS Schools",
-    "about.intro.title": "An education tradition approaching forty years",
+    "about.intro.title": "A forty-year education tradition",
     "about.intro.p1": "Since its founding, BIS Schools has brought Turkish and international students together under an international approach to education. Our aim is to raise happy, confident global citizens.",
     "about.intro.p2": "Our Alkent campus carries that long-standing experience into the early years. In Büyükçekmece we are building a warm home where children take their first steps in life with joy, discovery and love.",
     "about.imgtag": "Our roots run deep",
