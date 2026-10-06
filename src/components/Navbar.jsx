@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { CONTACT, TOPBAR_LINKS } from "../data/site.js";
-import { MENU } from "../data/institutional.js";
+import { useLang, useMenu, useSite, useT } from "../i18n/LangContext.jsx";
 import Icon from "./Icon.jsx";
 import TreeMark from "./TreeMark.jsx";
 import "./navbar.css";
@@ -13,6 +12,11 @@ export default function Navbar() {
   const [search, setSearch] = useState(false);
   const [q, setQ] = useState("");
   const navigate = useNavigate();
+
+  const t = useT();
+  const { lang, setLang } = useLang();
+  const { CONTACT, TOPBAR_LINKS } = useSite();
+  const MENU = useMenu();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -27,8 +31,9 @@ export default function Navbar() {
   }, [menu, search]);
 
   const ALL_LINKS = [...MENU.primary, ...MENU.groups.flatMap((g) => g.items)].filter((x) => x.to);
+  const locale = lang === "en" ? "en" : "tr";
   const results = q.trim()
-    ? ALL_LINKS.filter((n) => n.label.toLocaleLowerCase("tr").includes(q.toLocaleLowerCase("tr")))
+    ? ALL_LINKS.filter((n) => n.label.toLocaleLowerCase(locale).includes(q.toLocaleLowerCase(locale)))
     : ALL_LINKS.slice(0, 8);
 
   const go = (to) => { setSearch(false); setQ(""); navigate(to); };
@@ -44,28 +49,46 @@ export default function Navbar() {
                 <Link key={l.label} to={l.to} className="hdr__util">{l.label}</Link>
               ))}
             </nav>
-            <button className="hdr__util hdr__iconbtn" aria-label="Ara" onClick={() => setSearch(true)}>
+            <button className="hdr__util hdr__iconbtn" aria-label={t("nav.search")} onClick={() => setSearch(true)}>
               <Icon name="search" size={14} />
             </button>
-            <span className="hdr__lang">
-              <span className="hdr__langon">Türkçe</span>
-            </span>
+            <div className="hdr__lang" role="group" aria-label={t("lang.label")}>
+              <button
+                type="button"
+                lang="tr"
+                className={`hdr__langbtn ${lang === "tr" ? "is-active" : ""}`}
+                aria-pressed={lang === "tr"}
+                onClick={() => setLang("tr")}
+              >
+                {t("lang.tr")}
+              </button>
+              <span className="hdr__langsep" aria-hidden="true" />
+              <button
+                type="button"
+                lang="en"
+                className={`hdr__langbtn ${lang === "en" ? "is-active" : ""}`}
+                aria-pressed={lang === "en"}
+                onClick={() => setLang("en")}
+              >
+                {t("lang.en")}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Ana bar */}
         <div className="container hdr__main">
-          <button className="hdr__menu" onClick={() => setMenu(true)} aria-label="Menüyü aç">
+          <button className="hdr__menu" onClick={() => setMenu(true)} aria-label={t("nav.openMenu")}>
             <span className="hdr__burger"><i /><i /><i /></span>
-            <span className="hdr__menutext">MENÜ</span>
+            <span className="hdr__menutext">{t("nav.menu")}</span>
           </button>
 
-          <Link to="/" className="hdr__logo" aria-label="Ana sayfa">
-            <img src="/bis-logo-white.png" alt="BİS Alkent" className="hdr__logo-img" />
+          <Link to="/" className="hdr__logo" aria-label={t("nav.home")}>
+            <img src="/bis-logo-white.png" alt="BIS Alkent" className="hdr__logo-img" />
           </Link>
 
           <Link to="/iletisim" className="hdr__info">
-            <span className="hdr__infotext">BİLGİ FORMU</span>
+            <span className="hdr__infotext">{t("nav.enquiry")}</span>
             <span className="hdr__infoic"><Icon name="arrow" size={15} /></span>
           </Link>
         </div>
@@ -75,7 +98,7 @@ export default function Navbar() {
       <AnimatePresence>
         {search && (
           <motion.div className="searchbox" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <button className="searchbox__close" onClick={() => setSearch(false)} aria-label="Kapat">×</button>
+            <button className="searchbox__close" onClick={() => setSearch(false)} aria-label={t("common.close")}>×</button>
             <motion.div
               className="container searchbox__inner"
               initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }}
@@ -84,7 +107,7 @@ export default function Navbar() {
               <form onSubmit={(e) => { e.preventDefault(); if (results[0]) go(results[0].to); }}>
                 <div className="searchbox__field">
                   <Icon name="search" size={22} />
-                  <input autoFocus value={q} onChange={(e) => setQ(e.target.value)} placeholder="Sayfalarda ara…" />
+                  <input autoFocus value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("nav.searchPlaceholder")} />
                 </div>
               </form>
               <div className="searchbox__results">
@@ -93,7 +116,7 @@ export default function Navbar() {
                     {r.label}<Icon name="arrow" size={16} />
                   </button>
                 ))}
-                {!results.length && <p className="searchbox__empty">Sonuç bulunamadı.</p>}
+                {!results.length && <p className="searchbox__empty">{t("nav.noResults")}</p>}
               </div>
             </motion.div>
           </motion.div>
@@ -108,8 +131,8 @@ export default function Navbar() {
               <TreeMark size={620} color="rgba(255,255,255,0.04)" className="menuover__tree" />
             </div>
             <div className="container menuover__head">
-              <img src="/bis-logo-white.png" alt="BİS Alkent" className="menuover__logo" />
-              <button className="menuover__close" onClick={() => setMenu(false)} aria-label="Kapat">
+              <img src="/bis-logo-white.png" alt="BIS Alkent" className="menuover__logo" />
+              <button className="menuover__close" onClick={() => setMenu(false)} aria-label={t("common.close")}>
                 <span /><span />
               </button>
             </div>
@@ -155,7 +178,7 @@ export default function Navbar() {
                 className="menuover__side"
                 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <span className="menuover__eyebrow">İletişim</span>
+                <span className="menuover__eyebrow">{t("nav.contact")}</span>
                 <a href={CONTACT.phoneHref} className="menuover__contact"><Icon name="phone" size={18} /> {CONTACT.phone}</a>
                 <a href={`mailto:${CONTACT.email}`} className="menuover__contact"><Icon name="mail" size={18} /> {CONTACT.email}</a>
                 <span className="menuover__contact"><Icon name="pin" size={18} /> {CONTACT.address}</span>
@@ -163,7 +186,7 @@ export default function Navbar() {
                   <Icon name="instagram" size={18} /> {CONTACT.instagramHandle}
                 </a>
                 <Link to="/iletisim" className="btn btn-gold menuover__cta" onClick={() => setMenu(false)}>
-                  Ön Kayıt Formu <Icon name="arrow" size={16} className="arrow" />
+                  {t("nav.preRegister")} <Icon name="arrow" size={16} className="arrow" />
                 </Link>
               </motion.div>
             </div>

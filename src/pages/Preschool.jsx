@@ -3,27 +3,20 @@ import { AnimatePresence, motion } from "framer-motion";
 import Icon from "../components/Icon.jsx";
 import Reveal, { Stagger, StaggerItem } from "../components/Reveal.jsx";
 import { PageHero, CTABand, SectionHeading } from "../components/Shared.jsx";
-import { AGE_GROUPS, DAY_FLOW, FAQ, BG } from "../data/site.js";
+import { useSite, useT } from "../i18n/LangContext.jsx";
 import "./pages.css";
-
-const CURRICULUM = [
-  { icon: "book", title: "Dil & Okuryazarlık", text: "Türkçe ve İngilizce; hikâyeler, şarkılar ve dramayla doğal biçimde." },
-  { icon: "sprout", title: "Matematik & Mantık", text: "Sayı sezgisi, örüntüler ve problem çözme; somut materyallerle." },
-  { icon: "palette", title: "Sanat & Yaratıcılık", text: "Resim, kolaj, kil ve serbest üretim; kendini ifade etme özgürlüğü." },
-  { icon: "leaf", title: "Fen & Doğa", text: "Deneyler, bahçe ve doğa gözlemleriyle keşif ve merak." },
-  { icon: "music", title: "Müzik & Hareket", text: "Ritim, dans ve grup oyunlarıyla bedensel ve işitsel gelişim." },
-  { icon: "heart", title: "Sosyal-Duygusal", text: "Duyguları tanıma, empati ve arkadaşlık; öz düzenleme becerileri." },
-];
 
 export default function Preschool() {
   const [open, setOpen] = useState(0);
+  const t = useT();
+  const { AGE_GROUPS, DAY_FLOW, FAQ, BG, CURRICULUM } = useSite();
 
   return (
     <>
       <PageHero
-        eyebrow="Anaokulu Programı"
-        title="Oyunla, keşifle, sevgiyle öğrenme"
-        subtitle="Doğumdan 5 yaşına kadar uzanan okul öncesi dönem, çocuğun geleceğe dair öğrenme becerilerinin ve özgüveninin temelini attığı kritik bir evredir."
+        eyebrow={t("preschool.eyebrow")}
+        title={t("preschool.title")}
+        subtitle={t("preschool.subtitle")}
         image={BG.preschool}
         accent="var(--gold)"
       />
@@ -32,23 +25,16 @@ export default function Preschool() {
       <section className="section">
         <div className="container split split--reverse">
           <Reveal className="split__media">
-            <img src="/images/new/unnamed-21.jpg" alt="Yaratıcı okuma köşesi" />
+            <img src="/images/new/unnamed-21.jpg" alt={t("preschool.imgalt")} />
             <div className="imgtag" style={{ top: 18, right: -14 }}>
-              <Icon name="play" size={20} /> Oyunla öğrenme
+              <Icon name="play" size={20} /> {t("preschool.imgtag")}
             </div>
           </Reveal>
           <Reveal delay={0.1} className="prose">
-            <span className="eyebrow">Öğrenme Felsefemiz</span>
-            <h2 style={{ margin: "0.7rem 0 1.2rem" }}>Çocuklar; oyun oynayarak, keşfederek ve deneyimleyerek öğrenir</h2>
-            <p>
-              Programımız; çocukların bilişsel, sosyal, duygusal, fiziksel ve iletişim
-              becerilerinin dengeli gelişimini amaçlar. Hem sınıf içi hem sınıf dışı etkinlikler
-              yapılandırılarak yaratıcılık, problem çözme ve eleştirel düşünme desteklenir.
-            </p>
-            <p>
-              Amacımız; güvenli bir ortamda kendini ifade edebilen, öğrenmeyi seven ve çevresiyle
-              sağlıklı ilişkiler kurabilen bireyler yetiştirmektir.
-            </p>
+            <span className="eyebrow">{t("preschool.philosophy.eyebrow")}</span>
+            <h2 style={{ margin: "0.7rem 0 1.2rem" }}>{t("preschool.philosophy.title")}</h2>
+            <p>{t("preschool.philosophy.p1")}</p>
+            <p>{t("preschool.philosophy.p2")}</p>
           </Reveal>
         </div>
       </section>
@@ -58,9 +44,9 @@ export default function Preschool() {
         <div className="container">
           <SectionHeading
             center
-            eyebrow="Yaş Grupları"
-            title="Her gelişim evresine özel"
-            text="EYFS erken çocukluk çerçevesinden ilham alan üç kademe; her çocuğun kendi ritminde ilerlemesini sağlar."
+            eyebrow={t("preschool.ages.eyebrow")}
+            title={t("preschool.ages.title")}
+            text={t("preschool.ages.text")}
           />
           <Stagger className="cols-3" style={{ marginTop: "3rem" }}>
             {AGE_GROUPS.map((g) => (
@@ -84,9 +70,9 @@ export default function Preschool() {
       <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="Öğrenme Alanları"
-            title="Bütünsel bir gelişim müfredatı"
-            text="Altı temel alan, günün içinde birbirine dokunarak zengin bir öğrenme dokusu oluşturur."
+            eyebrow={t("preschool.curriculum.eyebrow")}
+            title={t("preschool.curriculum.title")}
+            text={t("preschool.curriculum.text")}
           />
           <Stagger className="features" style={{ marginTop: "3rem" }}>
             {CURRICULUM.map((c) => (
@@ -105,9 +91,9 @@ export default function Preschool() {
         <div className="container">
           <SectionHeading
             center
-            eyebrow="Bir Günümüz"
-            title="Neşeyle başlar, keşifle dolar"
-            text="Öngörülebilir ama hiç sıkıcı olmayan bir akış; çocuklara güven, bize esneklik verir."
+            eyebrow={t("preschool.day.eyebrow")}
+            title={t("preschool.day.title")}
+            text={t("preschool.day.text")}
           />
           <div className="timeline" style={{ marginTop: "3rem" }}>
             {DAY_FLOW.map((d, i) => (
@@ -127,19 +113,15 @@ export default function Preschool() {
       <section className="section">
         <div className="container split">
           <Reveal className="split__media">
-            <img src="/images/nutrition.jpg" alt="Sağlıklı beslenme" />
+            <img src="/images/nutrition.jpg" alt={t("preschool.nutrition.imgalt")} />
           </Reveal>
           <Reveal delay={0.1} className="prose">
-            <span className="eyebrow">Sağlıklı Beslenme</span>
-            <h2 style={{ margin: "0.7rem 0 1.2rem" }}>İyi öğrenmenin temeli, iyi beslenmektir</h2>
-            <p>
-              Taze, dengeli ve mevsiminde hazırlanan menülerle çocuklarımızın gün boyu enerjik ve
-              mutlu kalmasını sağlıyoruz. Beslenme zamanları; paylaşmayı, sofra kültürünü ve
-              sağlıklı alışkanlıkları öğrenmenin de bir parçası.
-            </p>
+            <span className="eyebrow">{t("preschool.nutrition.eyebrow")}</span>
+            <h2 style={{ margin: "0.7rem 0 1.2rem" }}>{t("preschool.nutrition.title")}</h2>
+            <p>{t("preschool.nutrition.text")}</p>
             <div className="chips" style={{ marginTop: "1.4rem" }}>
-              <span className="chip-pill"><Icon name="leaf" size={15} /> Taze & mevsiminde</span>
-              <span className="chip-pill"><Icon name="heart" size={15} /> Dengeli menüler</span>
+              <span className="chip-pill"><Icon name="leaf" size={15} /> {t("preschool.nutrition.chip1")}</span>
+              <span className="chip-pill"><Icon name="heart" size={15} /> {t("preschool.nutrition.chip2")}</span>
             </div>
           </Reveal>
         </div>
@@ -148,7 +130,7 @@ export default function Preschool() {
       {/* FAQ */}
       <section className="section bg-cream2">
         <div className="container">
-          <SectionHeading center eyebrow="Sık Sorulanlar" title="Merak edilenler" />
+          <SectionHeading center eyebrow={t("preschool.faq.eyebrow")} title={t("preschool.faq.title")} />
           <div className="faq" style={{ marginTop: "2.5rem" }}>
             {FAQ.map((f, i) => (
               <div key={f.q} className={`faq__item ${open === i ? "is-open" : ""}`}>

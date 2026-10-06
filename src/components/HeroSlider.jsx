@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { HERO_SLIDES } from "../data/site.js";
+import { useSite, useT } from "../i18n/LangContext.jsx";
 import "./hero-slider.css";
 
 /* Kardeş BİS şubelerindeki #homeBanner owl-carousel'in karşılığı:
    tam genişlik görsel + çapraz tram gölge + ortalanmış caption + DAHA FAZLASI */
 
 export default function HeroSlider() {
+  const t = useT();
+  const { HERO_SLIDES } = useSite();
   const [i, setI] = useState(0);
   const timer = useRef(null);
   const n = HERO_SLIDES.length;
@@ -47,7 +49,7 @@ export default function HeroSlider() {
   return (
     <section
       className="hs"
-      aria-label="Kampüs tanıtımı"
+      aria-label={t("hero.aria")}
       aria-roledescription="carousel"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
@@ -81,10 +83,10 @@ export default function HeroSlider() {
             <p className="hs__sub">{slide.eyebrow}</p>
           </motion.div>
         </AnimatePresence>
-        <Link to="/anaokulu" className="hs__btn">DAHA FAZLASI</Link>
+        <Link to="/anaokulu" className="hs__btn">{t("hero.more")}</Link>
       </div>
 
-      <div className="hs__dots" role="tablist" aria-label="Görseller">
+      <div className="hs__dots" role="tablist" aria-label={t("hero.slides")}>
         {HERO_SLIDES.map((s, idx) => (
           <button
             key={idx}

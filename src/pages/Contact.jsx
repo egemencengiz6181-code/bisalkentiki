@@ -3,30 +3,43 @@ import { motion } from "framer-motion";
 import Icon from "../components/Icon.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { PageHero } from "../components/Shared.jsx";
-import { CONTACT, BG } from "../data/site.js";
+import { useSite, useT } from "../i18n/LangContext.jsx";
 import "./pages.css";
 import "./contact.css";
 
 export default function Contact() {
+  const t = useT();
+  const { CONTACT, BG, AGE_OPTIONS } = useSite();
+
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ parent: "", child: "", age: "3 yaş (EYFS Junior)", phone: "", email: "", note: "" });
+  const [form, setForm] = useState({ parent: "", child: "", age: "", phone: "", email: "", note: "" });
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const age = form.age || AGE_OPTIONS[0];
 
   const submit = (e) => {
     e.preventDefault();
     // Demo: gerçek gönderim backend gerektirir. Şimdilik e-posta taslağı açar.
-    const body = `Veli: ${form.parent}%0AÇocuk: ${form.child}%0AYaş: ${form.age}%0ATelefon: ${form.phone}%0AE-posta: ${form.email}%0ANot: ${form.note}`;
-    window.location.href = `mailto:${CONTACT.email}?subject=Ön Kayıt Başvurusu - ${encodeURIComponent(form.child || form.parent)}&body=${body}`;
+    const lines = [
+      `${t("contact.mail.parent")}: ${form.parent}`,
+      `${t("contact.mail.child")}: ${form.child}`,
+      `${t("contact.mail.age")}: ${age}`,
+      `${t("contact.mail.phone")}: ${form.phone}`,
+      `${t("contact.mail.email")}: ${form.email}`,
+      `${t("contact.mail.note")}: ${form.note}`,
+    ];
+    const subject = encodeURIComponent(`${t("contact.mail.subject")} - ${form.child || form.parent}`);
+    const body = encodeURIComponent(lines.join("\n"));
+    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
   return (
     <>
       <PageHero
-        eyebrow="İletişim & Ön Kayıt"
-        title="Neşeli başlangıç bir mesaj uzağınızda"
-        subtitle="Formu doldurun, size ulaşalım ve çocuğunuz için bir kampüs ziyareti planlayalım. Kontenjanlar sınırlıdır."
+        eyebrow={t("contact.eyebrow")}
+        title={t("contact.title")}
+        subtitle={t("contact.subtitle")}
         image={BG.contact}
         accent="var(--pine)"
       />
@@ -35,32 +48,29 @@ export default function Contact() {
         <div className="container contact">
           {/* Info side */}
           <Reveal className="contact__info">
-            <h2>Bize ulaşın</h2>
-            <p className="lead" style={{ marginBottom: "1.8rem" }}>
-              Sorularınız, kayıt süreci veya kampüs ziyareti için buradayız. Size en kısa sürede
-              dönüş yapmaktan mutluluk duyarız.
-            </p>
+            <h2>{t("contact.info.title")}</h2>
+            <p className="lead" style={{ marginBottom: "1.8rem" }}>{t("contact.info.lead")}</p>
 
             <a className="contact__row" href={CONTACT.phoneHref}>
               <span className="contact__ic"><Icon name="phone" size={20} /></span>
-              <span><strong>Telefon</strong>{CONTACT.phone}</span>
+              <span><strong>{t("contact.label.phone")}</strong>{CONTACT.phone}</span>
             </a>
             <a className="contact__row" href={`mailto:${CONTACT.email}`}>
               <span className="contact__ic"><Icon name="mail" size={20} /></span>
-              <span><strong>E-posta</strong>{CONTACT.email}</span>
+              <span><strong>{t("contact.label.email")}</strong>{CONTACT.email}</span>
             </a>
             <a className="contact__row" href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT.mapQuery)}`} target="_blank" rel="noreferrer">
               <span className="contact__ic"><Icon name="pin" size={20} /></span>
-              <span><strong>Adres</strong>{CONTACT.address}</span>
+              <span><strong>{t("contact.label.address")}</strong>{CONTACT.address}</span>
             </a>
             <a className="contact__row" href={CONTACT.instagram} target="_blank" rel="noreferrer">
               <span className="contact__ic"><Icon name="instagram" size={20} /></span>
-              <span><strong>Instagram</strong>{CONTACT.instagramHandle}</span>
+              <span><strong>{t("contact.label.instagram")}</strong>{CONTACT.instagramHandle}</span>
             </a>
 
             <div className="contact__hours">
               <Icon name="clock" size={18} />
-              <span>Hafta içi 08:30 – 17:00 · Ziyaret için randevu alınız</span>
+              <span>{t("contact.hours")}</span>
             </div>
           </Reveal>
 
@@ -72,49 +82,47 @@ export default function Contact() {
                 initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
               >
                 <span className="contact__check"><Icon name="heart" size={34} /></span>
-                <h3>Teşekkürler!</h3>
-                <p>Başvurunuz e-posta uygulamanızda hazırlandı. Göndermeniz yeterli — en kısa sürede size döneceğiz.</p>
-                <button className="btn btn-ghost" onClick={() => setSent(false)}>Yeni başvuru</button>
+                <h3>{t("contact.done.title")}</h3>
+                <p>{t("contact.done.text")}</p>
+                <button className="btn btn-ghost" onClick={() => setSent(false)}>{t("contact.done.again")}</button>
               </motion.div>
             ) : (
               <form className="contact__form" onSubmit={submit}>
-                <h3>Ön Kayıt Formu</h3>
+                <h3>{t("contact.form.title")}</h3>
                 <div className="field">
-                  <label htmlFor="parent">Veli Adı Soyadı</label>
-                  <input id="parent" required value={form.parent} onChange={set("parent")} placeholder="Adınız Soyadınız" />
+                  <label htmlFor="parent">{t("contact.form.parent")}</label>
+                  <input id="parent" required value={form.parent} onChange={set("parent")} placeholder={t("contact.form.parentPh")} />
                 </div>
                 <div className="field-row">
                   <div className="field">
-                    <label htmlFor="child">Çocuğun Adı</label>
-                    <input id="child" value={form.child} onChange={set("child")} placeholder="Çocuğunuzun adı" />
+                    <label htmlFor="child">{t("contact.form.child")}</label>
+                    <input id="child" value={form.child} onChange={set("child")} placeholder={t("contact.form.childPh")} />
                   </div>
                   <div className="field">
-                    <label htmlFor="age">Yaş Grubu</label>
-                    <select id="age" value={form.age} onChange={set("age")}>
-                      <option>3 yaş (EYFS Junior)</option>
-                      <option>4 yaş (EYFS)</option>
-                      <option>5 yaş (Reception)</option>
+                    <label htmlFor="age">{t("contact.form.age")}</label>
+                    <select id="age" value={age} onChange={set("age")}>
+                      {AGE_OPTIONS.map((o) => <option key={o}>{o}</option>)}
                     </select>
                   </div>
                 </div>
                 <div className="field-row">
                   <div className="field">
-                    <label htmlFor="phone">Telefon</label>
-                    <input id="phone" required type="tel" value={form.phone} onChange={set("phone")} placeholder="05xx xxx xx xx" />
+                    <label htmlFor="phone">{t("contact.form.phone")}</label>
+                    <input id="phone" required type="tel" value={form.phone} onChange={set("phone")} placeholder={t("contact.form.phonePh")} />
                   </div>
                   <div className="field">
-                    <label htmlFor="email">E-posta</label>
-                    <input id="email" required type="email" value={form.email} onChange={set("email")} placeholder="ornek@email.com" />
+                    <label htmlFor="email">{t("contact.form.email")}</label>
+                    <input id="email" required type="email" value={form.email} onChange={set("email")} placeholder={t("contact.form.emailPh")} />
                   </div>
                 </div>
                 <div className="field">
-                  <label htmlFor="note">Mesajınız (opsiyonel)</label>
-                  <textarea id="note" rows="3" value={form.note} onChange={set("note")} placeholder="Eklemek istedikleriniz..." />
+                  <label htmlFor="note">{t("contact.form.note")}</label>
+                  <textarea id="note" rows="3" value={form.note} onChange={set("note")} placeholder={t("contact.form.notePh")} />
                 </div>
                 <button type="submit" className="btn btn-gold" style={{ width: "100%", justifyContent: "center" }}>
-                  Başvuruyu Gönder <Icon name="arrow" size={17} className="arrow" />
+                  {t("contact.form.submit")} <Icon name="arrow" size={17} className="arrow" />
                 </button>
-                <p className="contact__mini">Bilgileriniz yalnızca kayıt süreci için kullanılır.</p>
+                <p className="contact__mini">{t("contact.form.mini")}</p>
               </form>
             )}
           </Reveal>
@@ -126,7 +134,7 @@ export default function Contact() {
         <div className="container">
           <iframe
             className="contact__map"
-            title="BİS Alkent Anaokulu konum"
+            title={t("contact.mapTitle")}
             loading="lazy"
             src={`https://maps.google.com/maps?q=${encodeURIComponent(CONTACT.mapQuery)}&z=14&output=embed`}
           />

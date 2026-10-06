@@ -5,7 +5,7 @@ import Icon from "../components/Icon.jsx";
 import TreeMark from "../components/TreeMark.jsx";
 import Reveal, { Stagger, StaggerItem } from "../components/Reveal.jsx";
 import { PageHero, CTABand, SectionHeading } from "../components/Shared.jsx";
-import { PAGES } from "../data/institutional.js";
+import { usePages, useT } from "../i18n/LangContext.jsx";
 import NotFound from "./NotFound.jsx";
 import "./pages.css";
 import "./content.css";
@@ -88,13 +88,14 @@ function Numbered({ b }) {
 }
 
 function Cards({ b }) {
+  const t = useT();
   return (
     <div className="container">
       <SectionHeading eyebrow={b.eyebrow} title={b.heading} text={b.text} />
       <Stagger className="cols-4" style={{ marginTop: "3rem" }}>
         {b.items.map((it) => (
           <StaggerItem key={it.title} className={`card orgcard ${it.featured ? "orgcard--featured" : ""}`}>
-            {it.featured && <span className="orgcard__flag">Siz buradasınız</span>}
+            {it.featured && <span className="orgcard__flag">{t("common.youAreHere")}</span>}
             <span className="orgcard__tag">{it.tag}</span>
             <h3>{it.title}</h3>
             <p>{it.text}</p>
@@ -187,6 +188,7 @@ const RENDER = {
 
 export default function ContentPage() {
   const { slug } = useParams();
+  const PAGES = usePages();
   const page = PAGES[slug];
   if (!page) return <NotFound />;
 

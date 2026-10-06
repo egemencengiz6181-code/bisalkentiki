@@ -177,27 +177,66 @@ export const CAMPUSES = [
 
 export const NEWS = [
   {
+    cat: "duyuru",
     tag: "Duyuru",
     date: "Eylül 2026",
     title: "Alkent'te yeni bir başlangıç",
     excerpt: "Yaşam boyu öğrenmenin neşeli başlangıcı Büyükçekmece'ye geliyor. Erken kayıt kontenjanlarımız açıldı.",
-    color: "var(--pine)",
+    color: "var(--bis-green)",
   },
   {
+    cat: "etkinlik",
     tag: "Etkinlik",
     date: "Ağustos 2026",
     title: "Açık Kapı Günleri",
     excerpt: "Kampüsümüzü keşfedin, öğretmenlerimizle tanışın ve çocuğunuz için sınıflarımızı birlikte gezelim.",
-    color: "var(--gold)",
+    color: "var(--bis-cream-h)",
   },
   {
+    cat: "pedagoji",
     tag: "Pedagoji",
     date: "Temmuz 2026",
     title: "Oyunun gücü üzerine",
     excerpt: "Oyun neden okul öncesinde en güçlü öğrenme aracıdır? Uzman öğretmenlerimizin gözünden.",
-    color: "var(--terra)",
+    color: "var(--bis-blue)",
+  },
+  {
+    cat: "pedagoji",
+    tag: "Pedagoji",
+    date: "Haziran 2026",
+    title: "Doğada öğrenmenin faydaları",
+    excerpt: "Açık hava etkinlikleri çocukların dikkatini, dayanıklılığını ve merakını nasıl güçlendiriyor?",
+    color: "var(--bis-blue)",
+  },
+  {
+    cat: "etkinlik",
+    tag: "Etkinlik",
+    date: "Mayıs 2026",
+    title: "Aile atölyesi: Birlikte üretiyoruz",
+    excerpt: "Ebeveynler ve çocuklar el ele; sanat, müzik ve oyun dolu bir gün planlıyoruz.",
+    color: "var(--bis-cream-h)",
+  },
+  {
+    cat: "duyuru",
+    tag: "Duyuru",
+    date: "Nisan 2026",
+    title: "Kayıt takvimimiz güncellendi",
+    excerpt: "2026–2027 dönemi için başvuru adımları ve önemli tarihler yayında.",
+    color: "var(--bis-green)",
   },
 ];
+
+// Haber filtresi — `key` dilden bağımsızdır, `label` çevrilir
+export const NEWS_CATS = [
+  { key: "all", label: "Tümü" },
+  { key: "duyuru", label: "Duyuru" },
+  { key: "etkinlik", label: "Etkinlik" },
+  { key: "pedagoji", label: "Pedagoji" },
+];
+
+// Öne çıkan haberin gövde metni (Haberler sayfası)
+export const NEWS_FEATURED_BODY =
+  "Yaşam boyu öğrenmenin neşeli başlangıcı Büyükçekmece'ye geliyor. Sınırlı kontenjanla açtığımız erken kayıt döneminde, çocuğunuz için bir yer ayırmak ve kampüsümüzü keşfetmek üzere bize ulaşabilirsiniz.";
 
 export const FAQ = [
   {
@@ -281,4 +320,73 @@ export const TESTIMONIALS = [
     name: "BİS Alkent Pedagoji Ekibi",
     role: "Açık Hava Eğitimi",
   },
+];
+
+
+// ---------------------------------------------------------------------------
+// Sayfa içi liste içerikleri (bileşenlerden veri katmanına taşındı)
+// ---------------------------------------------------------------------------
+
+// Hakkımızda — değerler ve rozetler
+export const ABOUT_VALUES = [
+  { icon: "shield", title: "Güven & Şefkat", text: "Çocuklarımız kendini güvende ve sevildiğini hissettiği bir ortamda büyür." },
+  { icon: "globe", title: "Kültürel Zenginlik", text: "Uluslararası bir bakış açısıyla; farklılıklara saygı ve merak besleriz." },
+  { icon: "sprout", title: "Sürekli Gelişim", text: "Hem çocuklar hem kurum olarak her gün daha iyisini hedefleriz." },
+  { icon: "users", title: "Topluluk Ruhu", text: "Aileler, öğretmenler ve çocuklar; hep birlikte tek bir topluluğuz." },
+  { icon: "leaf", title: "Doğaya Saygı", text: "Çevre bilinci ve doğayla bağ, günlük yaşamın bir parçasıdır." },
+  { icon: "star", title: "Yüksek Standart", text: "İlham veren bir ortamda, en yüksek akademik ve pedagojik standartlar." },
+];
+
+export const ABOUT_CHIPS = [
+  { icon: "star", label: "38 yıllık deneyim" },
+  { icon: "globe", label: "Uluslararası anlayış" },
+  { icon: "users", label: "4 kampüs" },
+];
+
+// Eğitim yaklaşımı sayfası
+export const APPROACH_PRINCIPLES = [
+  { icon: "play", title: "Oyun, en ciddi iştir", text: "Oyun; çocuğun dünyayı anlamlandırma, deneme ve öğrenme biçimidir. Programımızın kalbinde bu vardır." },
+  { icon: "sun", title: "Merak yönlendirir", text: "Çocuğun sorusu, günün rotasını belirleyebilir. Öğretmen bir rehber, çevre ise üçüncü öğretmendir." },
+  { icon: "users", title: "Birlikte büyürüz", text: "Öğrenme sosyaldir. İş birliği, paylaşma ve empati; her etkinliğin doğal bir parçasıdır." },
+  { icon: "globe", title: "İki dilde zenginlik", text: "İngilizce, ders değil yaşamdır; şarkı, oyun ve hikâyelerle günün içine dokunur." },
+];
+
+export const APPROACH_COMPARE = [
+  "Ezber yerine anlama",
+  "Not yerine gelişim",
+  "Sıra yerine keşif",
+  "Rekabet yerine iş birliği",
+  "Sessizlik yerine merak",
+  "Tek tip yerine bireysellik",
+];
+
+export const APPROACH_PARTNER = [
+  { icon: "users", title: "Düzenli görüşmeler", text: "Gelişim şeffaf paylaşılır" },
+  { icon: "heart", title: "Sıcak iletişim", text: "Her soruya açık kapı" },
+  { icon: "palette", title: "Aile etkinlikleri", text: "Birlikte üretme zamanları" },
+];
+
+// Kampüs sayfası
+export const CAMPUS_FEATURES = [
+  { icon: "sun", title: "Aydınlık Sınıflar", text: "Doğal ışıkla dolu, çocuk ölçeğinde tasarlanmış öğrenme alanları." },
+  { icon: "leaf", title: "Açık Hava & Bahçe", text: "Keşif, hareket ve doğa etkinlikleri için güvenli dış mekânlar." },
+  { icon: "palette", title: "Atölye Köşeleri", text: "Sanat, fen ve duyusal oyun istasyonları her sınıfın içinde." },
+  { icon: "shield", title: "Güvenli Ortam", text: "Çocuk güvenliği önceliğiyle tasarlanmış, kontrollü kampüs." },
+];
+
+// Anaokulu sayfası — öğrenme alanları
+export const CURRICULUM = [
+  { icon: "book", title: "Dil & Okuryazarlık", text: "Türkçe ve İngilizce; hikâyeler, şarkılar ve dramayla doğal biçimde." },
+  { icon: "sprout", title: "Matematik & Mantık", text: "Sayı sezgisi, örüntüler ve problem çözme; somut materyallerle." },
+  { icon: "palette", title: "Sanat & Yaratıcılık", text: "Resim, kolaj, kil ve serbest üretim; kendini ifade etme özgürlüğü." },
+  { icon: "leaf", title: "Fen & Doğa", text: "Deneyler, bahçe ve doğa gözlemleriyle keşif ve merak." },
+  { icon: "music", title: "Müzik & Hareket", text: "Ritim, dans ve grup oyunlarıyla bedensel ve işitsel gelişim." },
+  { icon: "heart", title: "Sosyal-Duygusal", text: "Duyguları tanıma, empati ve arkadaşlık; öz düzenleme becerileri." },
+];
+
+// İletişim formu — yaş grubu seçenekleri
+export const AGE_OPTIONS = [
+  "3 yaş (EYFS Junior)",
+  "4 yaş (EYFS)",
+  "5 yaş (Reception)",
 ];

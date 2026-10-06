@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
 import HeroSlider from "../components/HeroSlider.jsx";
-import { AGE_GROUPS, NEWS, QUOTE, CONTACT_FOR, TESTIMONIALS, TOUR } from "../data/site.js";
+import { useSite, useT } from "../i18n/LangContext.jsx";
 import "./home.css";
 
 /* ---------------------------------------------------------------------------
@@ -13,6 +13,9 @@ import "./home.css";
 --------------------------------------------------------------------------- */
 
 export default function Home() {
+  const t = useT();
+  const { AGE_GROUPS, QUOTE, CONTACT_FOR, TOUR } = useSite();
+
   return (
     <div className="home">
       {/* 1 — TAM GENİŞLİK HERO SLIDER */}
@@ -30,7 +33,7 @@ export default function Home() {
       {/* 3 — BÖLÜMLERİMİZ: görsel zeminli kartlar (mainDivisionCard) */}
       <section className="divs">
         <div className="container">
-          <h2 className="secTitle">Bölümlerimiz</h2>
+          <h2 className="secTitle">{t("home.divisions")}</h2>
           <div className="divs__grid">
             {AGE_GROUPS.map((g, idx) => (
               <div key={g.code} className="divs__cell" style={{ "--d": `${idx * 0.12}s` }}>
@@ -38,7 +41,7 @@ export default function Home() {
                   <div className="dcard__inner">
                     <h3 lang="en">{g.code}</h3>
                     <p>{g.age}</p>
-                    <span className="dcard__btn">DAHA FAZLASI</span>
+                    <span className="dcard__btn">{t("home.more")}</span>
                   </div>
                 </Link>
                 <p className="dcard__campuses">
@@ -68,8 +71,8 @@ export default function Home() {
 
           <div className="hsplit__right">
             <div className="newsHead">
-              <h2 className="secTitle secTitle--left">Haberler</h2>
-              <Link to="/haberler" className="newsHead__all">TÜMÜ <Icon name="arrow" size={14} /></Link>
+              <h2 className="secTitle secTitle--left">{t("home.news")}</h2>
+              <Link to="/haberler" className="newsHead__all">{t("home.newsAll")} <Icon name="arrow" size={14} /></Link>
             </div>
             <NewsCarousel />
           </div>
@@ -97,9 +100,7 @@ export default function Home() {
       <section className="enq">
         <div className="container enq__grid">
           <div className="enq__left">
-            <p className="enq__lead">
-              Aşağıda belirtilen talepleriniz için bizimle form üzerinden iletişime geçebilirsiniz.
-            </p>
+            <p className="enq__lead">{t("home.enquiryLead")}</p>
             <div className="enq__items">
               {CONTACT_FOR.map((c) => (
                 <span className="enq__item" key={c.title}>
@@ -109,7 +110,7 @@ export default function Home() {
             </div>
           </div>
           <div className="enq__right">
-            <Link to="/iletisim" className="enq__btn">Bilgi Formu</Link>
+            <Link to="/iletisim" className="enq__btn">{t("home.enquiryBtn")}</Link>
           </div>
         </div>
       </section>
@@ -119,30 +120,33 @@ export default function Home() {
 
 /* ---------------- Haberler karüseli (carousel-indicators) ---------------- */
 function NewsCarousel() {
+  const t = useT();
+  const { NEWS } = useSite();
+  const news = NEWS.slice(0, 3);
   const [i, setI] = useState(0);
-  const n = NEWS.length;
+  const n = news.length;
 
   useEffect(() => {
     const t = setInterval(() => setI((v) => (v + 1) % n), 7000);
     return () => clearInterval(t);
   }, [n]);
 
-  const item = NEWS[i];
+  const item = news[i];
   return (
     <div className="ncar">
       <div className="ncar__item" key={i}>
         <span className="ncar__date">{item.date} · {item.tag}</span>
         <h3 className="ncar__title">{item.title}</h3>
         <p className="ncar__text">{item.excerpt}</p>
-        <Link to="/haberler" className="ncar__link">DEVAMINI OKU <Icon name="arrow" size={14} /></Link>
+        <Link to="/haberler" className="ncar__link">{t("home.newsRead")} <Icon name="arrow" size={14} /></Link>
       </div>
       <div className="ncar__dots" role="tablist">
-        {NEWS.map((_, idx) => (
+        {news.map((_, idx) => (
           <button
             key={idx}
             role="tab"
             aria-selected={idx === i}
-            aria-label={`Haber ${idx + 1}`}
+            aria-label={`${t("home.newsItem")} ${idx + 1}`}
             className={idx === i ? "is-active" : ""}
             onClick={() => setI(idx)}
           />
@@ -154,6 +158,8 @@ function NewsCarousel() {
 
 /* ---------------- Görüşler karüseli ---------------- */
 function Testimonials() {
+  const t = useT();
+  const { TESTIMONIALS } = useSite();
   const [i, setI] = useState(0);
   const per = 3;
   const pages = Math.ceil(TESTIMONIALS.length / per);
@@ -167,7 +173,7 @@ function Testimonials() {
   return (
     <section className="tst">
       <div className="container">
-        <h2 className="secTitle">Bizim Hakkımızda</h2>
+        <h2 className="secTitle">{t("home.testimonials")}</h2>
         <div className="tst__grid">
           {shown.map((t) => (
             <blockquote className="tst__card" key={t.text}>
@@ -186,7 +192,7 @@ function Testimonials() {
               key={idx}
               role="tab"
               aria-selected={idx === i}
-              aria-label={`Görüş grubu ${idx + 1}`}
+              aria-label={`${t("home.testimonialGroup")} ${idx + 1}`}
               className={idx === i ? "is-active" : ""}
               onClick={() => setI(idx)}
             />

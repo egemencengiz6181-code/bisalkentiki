@@ -3,31 +3,25 @@ import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
 import Reveal, { Stagger, StaggerItem } from "../components/Reveal.jsx";
 import { PageHero, CTABand } from "../components/Shared.jsx";
-import { NEWS, BG } from "../data/site.js";
+import { useSite, useT } from "../i18n/LangContext.jsx";
 import "./pages.css";
 import "./news.css";
 
-// Ana haberler + ek içerikler
-const ALL = [
-  ...NEWS,
-  { tag: "Pedagoji", date: "Haziran 2026", title: "Doğada öğrenmenin faydaları", excerpt: "Açık hava etkinlikleri çocukların dikkatini, dayanıklılığını ve merakını nasıl güçlendiriyor?", color: "var(--sky)" },
-  { tag: "Etkinlik", date: "Mayıs 2026", title: "Aile atölyesi: Birlikte üretiyoruz", excerpt: "Ebeveynler ve çocuklar el ele; sanat, müzik ve oyun dolu bir gün planlıyoruz.", color: "var(--terra)" },
-  { tag: "Duyuru", date: "Nisan 2026", title: "Kayıt takvimimiz güncellendi", excerpt: "2026–2027 dönemi için başvuru adımları ve önemli tarihler yayında.", color: "var(--pine)" },
-];
-
-const CATS = ["Tümü", "Duyuru", "Etkinlik", "Pedagoji"];
-
 export default function News() {
-  const [cat, setCat] = useState("Tümü");
-  const list = cat === "Tümü" ? ALL : ALL.filter((n) => n.tag === cat);
-  const featured = ALL[0];
+  const t = useT();
+  const { NEWS, NEWS_CATS, NEWS_FEATURED_BODY, BG } = useSite();
+
+  // Filtre, dilden bağımsız `key` üzerinden çalışır
+  const [cat, setCat] = useState("all");
+  const list = cat === "all" ? NEWS : NEWS.filter((n) => n.cat === cat);
+  const featured = NEWS[0];
 
   return (
     <>
       <PageHero
-        eyebrow="Haberler & Blog"
-        title="Alkent'ten güncel, ilham ve duyurular"
-        subtitle="Etkinliklerimiz, pedagoji üzerine yazılarımız ve kayıt duyurularımız; hepsi tek bir yerde."
+        eyebrow={t("news.eyebrow")}
+        title={t("news.title")}
+        subtitle={t("news.subtitle")}
         image={BG.news}
         accent="var(--gold)"
       />
@@ -38,7 +32,7 @@ export default function News() {
           <Reveal className="feat">
             <div className="feat__media">
               <img src="/images/new/unnamed-24.jpg" alt={featured.title} />
-              <span className="feat__flag">Öne Çıkan</span>
+              <span className="feat__flag">{t("news.featured")}</span>
             </div>
             <div className="feat__body">
               <div className="newscard__top" style={{ "--acc": featured.color }}>
@@ -47,13 +41,9 @@ export default function News() {
               </div>
               <h2>{featured.title}</h2>
               <p className="lead">{featured.excerpt}</p>
-              <p>
-                Yaşam boyu öğrenmenin neşeli başlangıcı Büyükçekmece'ye geliyor. Sınırlı
-                kontenjanla açtığımız erken kayıt döneminde, çocuğunuz için bir yer ayırmak ve
-                kampüsümüzü keşfetmek üzere bize ulaşabilirsiniz.
-              </p>
+              <p>{NEWS_FEATURED_BODY}</p>
               <Link to="/iletisim" className="btn" style={{ marginTop: "1rem" }}>
-                Ön kayıt için iletişime geç <Icon name="arrow" size={17} className="arrow" />
+                {t("news.contactBtn")} <Icon name="arrow" size={17} className="arrow" />
               </Link>
             </div>
           </Reveal>
@@ -64,13 +54,13 @@ export default function News() {
       <section className="section bg-cream2">
         <div className="container">
           <div className="news-filter">
-            {CATS.map((c) => (
+            {NEWS_CATS.map((c) => (
               <button
-                key={c}
-                className={`news-filter__btn ${cat === c ? "is-active" : ""}`}
-                onClick={() => setCat(c)}
+                key={c.key}
+                className={`news-filter__btn ${cat === c.key ? "is-active" : ""}`}
+                onClick={() => setCat(c.key)}
               >
-                {c}
+                {c.label}
               </button>
             ))}
           </div>
@@ -83,7 +73,9 @@ export default function News() {
                 </div>
                 <h3>{n.title}</h3>
                 <p>{n.excerpt}</p>
-                <Link to="/haberler" className="linkline">Devamını oku <Icon name="arrow" size={15} className="arrow" /></Link>
+                <Link to="/haberler" className="linkline">
+                  {t("common.readMore")} <Icon name="arrow" size={15} className="arrow" />
+                </Link>
               </StaggerItem>
             ))}
           </Stagger>

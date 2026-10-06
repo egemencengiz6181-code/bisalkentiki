@@ -32,11 +32,18 @@
 .hdr__top .hdr__util:hover { background: var(--bis-blue-h); color: #c8ba9e; }
 
 .hdr__iconbtn { background: none; border: none; cursor: pointer; }
-.hdr__lang { display: inline-flex; align-items: center; padding-left: 0.9rem; }
-.hdr__langon {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-  color: rgba(22, 35, 72, 0.7);
+.hdr__lang { display: inline-flex; align-items: center; gap: 0.5rem; padding-left: 0.9rem; }
+.hdr__langbtn {
+  background: none; border: 0; cursor: pointer; padding: 0.2rem 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+  color: rgba(22, 35, 72, 0.55);
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
 }
+.hdr__langbtn:hover { color: var(--bis-blue-h); }
+.hdr__langbtn.is-active { color: var(--bis-blue-h); border-bottom-color: var(--bis-blue-h); }
+.hdr__langsep { width: 1px; height: 12px; background: #bdb5a3; }
 
 /* ---- Ana bar (#mainNav) ---- */
 .hdr__main {

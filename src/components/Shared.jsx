@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Icon from "./Icon.jsx";
 import Reveal from "./Reveal.jsx";
 import EnText from "./EnText.jsx";
+import { useT } from "../i18n/LangContext.jsx";
 import "./shared.css";
 
 // İç sayfa başlığı
@@ -34,10 +35,8 @@ export function SectionHeading({ eyebrow, title, text, center, light }) {
   );
 }
 
-export function CTABand({
-  title = "Çocuğunuz için neşeli bir başlangıç",
-  text = "Ön kayıt kontenjanlarımız açıldı. Kampüsümüzü keşfetmek ve süreci başlatmak için bize ulaşın.",
-}) {
+export function CTABand({ title, text }) {
+  const t = useT();
   return (
     <section className="section">
       <div className="container">
@@ -49,14 +48,14 @@ export function CTABand({
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="ctaband__content">
-            <span className="eyebrow ctaband__eyebrow">Ön Kayıt Başladı</span>
-            <h2>{title}</h2>
-            <p>{text}</p>
+            <span className="eyebrow ctaband__eyebrow">{t("cta.eyebrow")}</span>
+            <h2>{title || t("cta.title")}</h2>
+            <p>{text || t("cta.text")}</p>
             <div className="ctaband__actions">
               <Link to="/iletisim" className="btn btn-gold">
-                <span>Başvuru Yap</span> <Icon name="arrow" size={15} className="arrow" />
+                <span>{t("cta.apply")}</span> <Icon name="arrow" size={15} className="arrow" />
               </Link>
-              <Link to="/anaokulu" className="btn btn-white"><span>Programı İncele</span></Link>
+              <Link to="/anaokulu" className="btn btn-white"><span>{t("cta.programme")}</span></Link>
             </div>
           </div>
         </motion.div>
