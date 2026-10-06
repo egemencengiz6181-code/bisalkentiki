@@ -36,7 +36,7 @@ export default function Home() {
               <div key={g.code} className="divs__cell" style={{ "--d": `${idx * 0.12}s` }}>
                 <Link to="/anaokulu" className="dcard" style={{ backgroundImage: `url(${g.img})` }}>
                   <div className="dcard__inner">
-                    <h3>{g.code}</h3>
+                    <h3 lang="en">{g.code}</h3>
                     <p>{g.age}</p>
                     <span className="dcard__btn">DAHA FAZLASI</span>
                   </div>
@@ -58,7 +58,7 @@ export default function Home() {
               <Link to="/anaokulu" className="prow" key={g.code}>
                 <span className="prow__img" style={{ backgroundImage: `url(${g.img})` }} />
                 <span className="prow__pill">
-                  <span className="prow__title">{g.code}</span>
+                  <span className="prow__title" lang="en">{g.code}</span>
                   <span className="prow__age">{g.age}</span>
                   <Icon name="arrow" size={16} className="prow__arrow" />
                 </span>

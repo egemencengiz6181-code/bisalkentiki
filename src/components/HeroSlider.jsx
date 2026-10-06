@@ -23,10 +23,36 @@ export default function HeroSlider() {
     timer.current = setInterval(() => setI((v) => (v + 1) % n), 6500);
   };
 
+  /* Mobilde parmakla kaydırma — yatay hareket dikeyden baskınsa slayt değişir,
+     değilse sayfa kaydırması serbest bırakılır. */
+  const touch = useRef(null);
+
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touch.current = { x: t.clientX, y: t.clientY };
+  };
+
+  const onTouchEnd = (e) => {
+    if (!touch.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touch.current.x;
+    const dy = t.clientY - touch.current.y;
+    touch.current = null;
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+    goTo(dx < 0 ? i + 1 : i - 1);
+  };
+
   const slide = HERO_SLIDES[i];
 
   return (
-    <section className="hs" aria-label="Kampüs tanıtımı">
+    <section
+      className="hs"
+      aria-label="Kampüs tanıtımı"
+      aria-roledescription="carousel"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      onTouchCancel={() => { touch.current = null; }}
+    >
       <div className="hs__stage">
         <AnimatePresence initial={false}>
           <motion.div

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Icon from "./Icon.jsx";
 import Reveal from "./Reveal.jsx";
+import EnText from "./EnText.jsx";
 import "./shared.css";
 
 // İç sayfa başlığı
@@ -15,7 +16,7 @@ export function PageHero({ eyebrow, title, subtitle, image, accent = "var(--pine
       <div className="container phero__inner">
         <Reveal>
           {eyebrow && <span className="eyebrow phero__eyebrow">{eyebrow}</span>}
-          <h1 className="phero__title">{title}</h1>
+          <h1 className="phero__title"><EnText>{title}</EnText></h1>
           {subtitle && <p className="lead phero__sub max-60">{subtitle}</p>}
         </Reveal>
       </div>

@@ -62,12 +62,12 @@ export default function Footer() {
       <div className="ftr__logos">
         <div className="container">
           <img src="/bis-logo.png" alt="BİS Schools" className="ftr__logos-mark" />
-          <p>The British School Istanbul ailesi</p>
+          <p><span lang="en">The British School Istanbul</span> ailesi</p>
           <ul>
             {BIS_FAMILY.map((b) => (
               <li key={b.name}>
                 <a href={b.href} target="_blank" rel="noreferrer">
-                  <strong>{b.name}</strong>
+                  <strong lang="en">{b.name}</strong>
                   <span>{b.note}</span>
                 </a>
               </li>
@@ -75,7 +75,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="ftr__divider">
-          <h1>BİS ALKENT, THE BRITISH SCHOOL İSTANBUL'UN BİR KURULUŞUDUR.</h1>
+          <h1>BİS ALKENT, <span lang="en">THE BRITISH SCHOOL ISTANBUL</span>'UN BİR KURULUŞUDUR.</h1>
         </div>
       </div>
     </footer>

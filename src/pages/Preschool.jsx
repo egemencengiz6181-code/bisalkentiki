@@ -67,7 +67,7 @@ export default function Preschool() {
               <StaggerItem key={g.code} className="agecard" style={{ "--tint": g.tint, "--acc": g.color }}>
                 <div className="agecard__top">
                   <span className="agecard__age">{g.age}</span>
-                  <span className="agecard__code">{g.code}</span>
+                  <span className="agecard__code" lang="en">{g.code}</span>
                 </div>
                 <h3>{g.title}</h3>
                 <p>{g.desc}</p>

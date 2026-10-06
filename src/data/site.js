@@ -233,7 +233,7 @@ export const TOPBAR_LINKS = [
 
 // logoFooter — The British School Istanbul ailesi
 export const BIS_FAMILY = [
-  { name: "BİS Schools", note: "Ulusal Okullar", href: "https://www.bisi.k12.tr/tr-TR/" },
+  { name: "BIS Schools", note: "Ulusal Okullar", href: "https://www.bisi.k12.tr/tr-TR/" },
   { name: "BISS", note: "British International School Istanbul", href: "https://www.bis.k12.tr" },
   { name: "BIS STEAM", note: "Etiler STEAM Kampüsü", href: "https://www.bis.k12.tr" },
 ];
