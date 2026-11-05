@@ -32,7 +32,6 @@ kurumsal sitelerden (bisi.k12.tr) türetilmiştir.
 | `/saglik-guvenlik` | Sağlık ve Güvenlik |
 | `/kvkk` | KVKK Aydınlatma Metni |
 | `/kalite-sertifikalari` | Kalite Sertifikaları (ISO) |
-| `/uluslararasi-bakalorya` | Uluslararası Bakalorya (IB) |
 | `/ogrenme-destek` | Öğrenme Destek Birimi |
 | `/rehberlik` | Rehberlik ve Psikolojik Danışmanlık |
 | `/yaratici-sanatlar` | Yaratıcı Sanatlar |

@@ -7,7 +7,7 @@ export const PAGES = {
   "kurumsal-yapi": {
     group: "Institutional",
     eyebrow: "Our Structure",
-    title: "The British School Istanbul family",
+    title: "BIS Schools family",
     subtitle: "BIS Alkent Preschool is the youngest member of a long-established education tradition and part of a strong institutional framework.",
     hero: N(24),
     accent: "var(--pine)",
@@ -17,7 +17,7 @@ export const PAGES = {
         eyebrow: "Together, one vision",
         heading: "Part of a strong framework",
         paragraphs: [
-          "Under The British School Istanbul umbrella sit schools for different age groups and needs, all run to shared quality standards. BIS Alkent Preschool is the family's new, early-years-focused member.",
+          "Under the BIS Schools umbrella sit schools for different age groups and needs, all run to shared quality standards. BIS Alkent Preschool is the family's new, early-years-focused member.",
           "Across every campus, teacher selection, curriculum and policy are governed by a single shared quality standard. Whichever campus a child joins, they are welcomed with the same care.",
         ],
         image: N(22),
@@ -30,8 +30,8 @@ export const PAGES = {
         items: [
           { title: "BIS Schools", tag: "National Schools", text: "Education within the Turkish national curriculum for Turkish and dual-national students across the Zekeriyaköy, Bahçeşehir and Çamlıca campuses." },
           { title: "BIS Alkent Preschool", tag: "Early Years · New", text: "Our new early-years campus for ages 3–5 in Büyükçekmece Alkent.", featured: true },
-          { title: "British International School Istanbul", tag: "International", text: "Our school with international status at the Zekeriyaköy Forest Campus, for students holding foreign passports." },
-          { title: "British International STEAM School", tag: "STEAM", text: "A science and technology focused approach at the Etiler STEAM Campus." },
+          { title: "BISS", tag: "International", text: "Our school with international status at the Zekeriyaköy Forest Campus, for students holding foreign passports." },
+          { title: "BIS STEAM", tag: "STEAM", text: "A science and technology focused approach at the Etiler STEAM Campus." },
         ],
       },
     ],
@@ -250,44 +250,6 @@ export const PAGES = {
   },
 
   // ============ ACADEMIC ============
-  "uluslararasi-bakalorya": {
-    group: "Academic",
-    eyebrow: "International Baccalaureate",
-    title: "An educational philosophy open to the world",
-    subtitle: "IB World Schools develop students in critical thinking, global awareness and lifelong learning.",
-    hero: N(25),
-    accent: "var(--pine)",
-    blocks: [
-      {
-        type: "prose",
-        eyebrow: "IB Diploma Programme",
-        heading: "A vision of international standards",
-        paragraphs: [
-          "Our institution holds Candidate School status for the International Baccalaureate (IB) Diploma Programme and is actively continuing the authorisation process to become an IB World School. This reflects our commitment to adopting and applying international standards in education.",
-          "IB World Schools share a common educational philosophy that aims to develop students not only academically but also in critical thinking, global awareness, research skills and lifelong learning. At BIS we believe this approach prepares our students for the future in the best possible way.",
-        ],
-        image: N(22),
-        imageSide: "right",
-      },
-      {
-        type: "features",
-        eyebrow: "IB Programmes",
-        heading: "Programmes authorised by the IBO",
-        text: "Schools authorised by the International Baccalaureate Organization (IBO) may offer one or more of the following programmes.",
-        items: [
-          { icon: "sprout", title: "Primary Years Programme (PYP)", text: "Learning rooted in curiosity and discovery from early childhood onwards." },
-          { icon: "book", title: "Middle Years Programme (MYP)", text: "An interdisciplinary, concept-driven framework for learning." },
-          { icon: "star", title: "Diploma Programme (DP)", text: "An academic programme that prepares students for university and the wider world." },
-          { icon: "globe", title: "Career-related Programme (CP)", text: "Combines career-focused learning with academic depth." },
-        ],
-      },
-      {
-        type: "callout",
-        text: "Candidate school status is not a guarantee of authorisation; the process is nevertheless pursued rigorously in terms of alignment with IB standards, teacher training and curriculum development.",
-      },
-    ],
-  },
-
   "ogrenme-destek": {
     group: "Academic",
     eyebrow: "Learning Support Unit",
@@ -399,7 +361,7 @@ export const PAGES = {
         type: "faq",
         items: [
           { q: "Do BIS Schools accept Turkish citizens?", a: "Yes. BIS Schools are our national schools, established to serve students who are citizens of the Republic of Türkiye. Our students benefit fully from the intensive English programme and the international education standards the school offers." },
-          { q: "What does your curriculum cover?", a: "Our schools follow the curriculum of the Turkish Ministry of National Education (MEB). That curriculum is enriched by forty years of experience at The British School Istanbul and by an intensive language programme taught alongside native English-speaking teachers." },
+          { q: "What does your curriculum cover?", a: "Our schools follow the curriculum of the Turkish Ministry of National Education (MEB). That curriculum is enriched by forty years of experience at BIS Schools and by an intensive language programme taught alongside native English-speaking teachers." },
           { q: "Which teachers deliver the English lessons?", a: "Our priority is that your child learns the language with the most natural and accurate pronunciation. For that reason all lessons delivered in English are taught by native-speaker teachers who are specialists in their field." },
           { q: "What is the language proficiency of your Turkish teachers?", a: "Our teachers for lessons delivered in Turkish are selected carefully from professionals who, alongside expertise in their own subject, are fluent in both Turkish and English and communicate with full bilingual competence." },
           { q: "How is the international setting reflected in the student profile?", a: "Our school aims for a multicultural structure. To create a balanced, global learning atmosphere we offer a setting where Turkish, dual-national and international students learn side by side." },
@@ -449,7 +411,6 @@ export const MENU = {
       items: [
         { to: "/anaokulu", label: "Early Years" },
         { to: "/yaklasim", label: "Our Approach" },
-        { to: "/uluslararasi-bakalorya", label: "International Baccalaureate" },
         { to: "/ogrenme-destek", label: "Learning Support Unit" },
         { to: "/rehberlik", label: "Guidance and Counselling" },
         { to: "/yaratici-sanatlar", label: "Creative Arts" },

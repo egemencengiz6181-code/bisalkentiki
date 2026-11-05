@@ -121,20 +121,6 @@
   color: #6f6a62;
 }
 
-.ftr__divider { background: var(--bis-gray-2); color: #817c73; }
-.ftr__divider h1 {
-  font-family: var(--font-body);
-  color: inherit;
-  margin: 0;
-  padding: 10px 1rem;
-  font-weight: 700;
-  font-size: 0.66rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 1.7;
-}
-
 /* --------------------------- responsive --------------------------- */
 @media (max-width: 1080px) {
   .ftr__cols { grid-template-columns: repeat(3, 1fr); }

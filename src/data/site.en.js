@@ -261,7 +261,7 @@ export const TOPBAR_LINKS = [
 
 export const BIS_FAMILY = [
   { name: "BIS Schools", note: "National Schools", href: "https://www.bisi.k12.tr/tr-TR/" },
-  { name: "BISS", note: "British International School Istanbul", href: "https://www.bis.k12.tr" },
+  { name: "BISS", note: "International School", href: "https://www.bis.k12.tr" },
   { name: "BIS STEAM", note: "Etiler STEAM Campus", href: "https://www.bis.k12.tr" },
 ];
 

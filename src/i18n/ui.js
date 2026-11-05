@@ -50,7 +50,6 @@ export const UI = {
     "footer.faq": "Sıkça Sorulan Sorular",
     "footer.careers": "Kariyer",
     "footer.familySuffix": "ailesi",
-    "footer.foundedBy": "BİS ALKENT, THE BRITISH SCHOOL ISTANBUL'UN BİR KURULUŞUDUR.",
 
     // ---- CTA bandı ----
     "cta.eyebrow": "Ön Kayıt Başladı",
@@ -245,7 +244,6 @@ export const UI = {
     "footer.faq": "Frequently Asked Questions",
     "footer.careers": "Careers",
     "footer.familySuffix": "family",
-    "footer.foundedBy": "BIS ALKENT IS PART OF THE BRITISH SCHOOL ISTANBUL.",
 
     // ---- CTA band ----
     "cta.eyebrow": "Enrolment Is Open",

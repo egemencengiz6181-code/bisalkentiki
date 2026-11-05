@@ -7,7 +7,7 @@ export const PAGES = {
   "kurumsal-yapi": {
     group: "Kurumsal",
     eyebrow: "Kurumsal Yapı",
-    title: "The British School Istanbul ailesi",
+    title: "BIS Schools ailesi",
     subtitle: "BİS Alkent Anaokulu, köklü bir eğitim geleneğinin en genç üyesi olarak güçlü bir kurumsal çatının parçasıdır.",
     hero: N(24),
     accent: "var(--pine)",
@@ -17,7 +17,7 @@ export const PAGES = {
         eyebrow: "Bir arada, tek bir vizyon",
         heading: "Güçlü bir çatının parçası",
         paragraphs: [
-          "The British School Istanbul çatısı altında; farklı yaş gruplarına ve ihtiyaçlara yönelik, ortak kalite standartlarıyla yönetilen okullar yer alır. BİS Alkent Anaokulu da bu ailenin okul öncesi odaklı yeni üyesidir.",
+          "BIS Schools çatısı altında; farklı yaş gruplarına ve ihtiyaçlara yönelik, ortak kalite standartlarıyla yönetilen okullar yer alır. BİS Alkent Anaokulu da bu ailenin okul öncesi odaklı yeni üyesidir.",
           "Tüm yerleşkelerimizde öğretmen seçimi, müfredat ve politikalar tek ve ortak kalite standartları üzerinden yürütülür. Böylece hangi kampüste olursa olsun her çocuk aynı özenle karşılanır.",
         ],
         image: N(22),
@@ -30,8 +30,8 @@ export const PAGES = {
         items: [
           { title: "BİS Schools", tag: "Ulusal Okullar", text: "Zekeriyaköy, Bahçeşehir ve Çamlıca kampüsleriyle Türk ve çift uyruklu öğrencilere MEB müfredatı çerçevesinde eğitim." },
           { title: "BİS Alkent Anaokulu", tag: "Okul Öncesi · Yeni", text: "Büyükçekmece Alkent'te, 3–5 yaş için okul öncesi odaklı yeni kampüsümüz.", featured: true },
-          { title: "British International School İstanbul", tag: "Uluslararası", text: "Zekeriyaköy Forest Kampüsü'nde, yabancı pasaport sahibi öğrencilere yönelik uluslararası statüdeki okulumuz." },
-          { title: "British International STEAM School", tag: "STEAM", text: "Etiler STEAM Kampüsü'nde, bilim ve teknoloji odaklı eğitim anlayışı." },
+          { title: "BISS", tag: "Uluslararası", text: "Zekeriyaköy Forest Kampüsü'nde, yabancı pasaport sahibi öğrencilere yönelik uluslararası statüdeki okulumuz." },
+          { title: "BIS STEAM", tag: "STEAM", text: "Etiler STEAM Kampüsü'nde, bilim ve teknoloji odaklı eğitim anlayışı." },
         ],
       },
     ],
@@ -250,44 +250,6 @@ export const PAGES = {
   },
 
   // ============ AKADEMİK ============
-  "uluslararasi-bakalorya": {
-    group: "Akademik",
-    eyebrow: "Uluslararası Bakalorya",
-    title: "Dünyaya açılan bir eğitim felsefesi",
-    subtitle: "IB Dünya Okulları, öğrencileri eleştirel düşünme, küresel farkındalık ve yaşam boyu öğrenme alanlarında geliştirir.",
-    hero: N(25),
-    accent: "var(--pine)",
-    blocks: [
-      {
-        type: "prose",
-        eyebrow: "IB Diploma Programı",
-        heading: "Uluslararası standartlarda bir vizyon",
-        paragraphs: [
-          "Kurumumuz, Uluslararası Bakalorya (International Baccalaureate – IB) Diploma Programı için aday okul (Candidate School) statüsündedir ve IB Dünya Okulu olarak yetkilendirme sürecine aktif olarak devam etmektedir. Bu süreç, uluslararası eğitim standartlarını benimseme ve uygulama konusundaki kararlılığımızı yansıtır.",
-          "IB Dünya Okulları, öğrencileri yalnızca akademik olarak değil; eleştirel düşünme, küresel farkındalık, araştırma becerileri ve yaşam boyu öğrenme gibi alanlarda da geliştirmeyi hedefleyen ortak bir eğitim felsefesini paylaşır. BİS olarak biz de bu yaklaşımın, öğrencilerimizi geleceğe en iyi şekilde hazırladığına inanıyoruz.",
-        ],
-        image: N(22),
-        imageSide: "right",
-      },
-      {
-        type: "features",
-        eyebrow: "IB Programları",
-        heading: "IBO tarafından yetkilendirilen programlar",
-        text: "Uluslararası Bakalorya Organizasyonu (IBO) tarafından yetkilendirilmiş okullar, aşağıdaki programlardan birini veya birkaçını sunabilir.",
-        items: [
-          { icon: "sprout", title: "İlk Yıllar Programı (PYP)", text: "Erken çocukluktan itibaren merak ve keşfe dayalı öğrenme." },
-          { icon: "book", title: "Orta Yıllar Programı (MYP)", text: "Disiplinler arası, kavramsal öğrenme çerçevesi." },
-          { icon: "star", title: "Diploma Programı (DP)", text: "Üniversiteye ve global dünyaya hazırlayan akademik program." },
-          { icon: "globe", title: "Kariyer Programı (CP)", text: "Kariyer odaklı öğrenmeyi akademik derinlikle birleştirir." },
-        ],
-      },
-      {
-        type: "callout",
-        text: "Aday okul statüsü yetkilendirme garantisi anlamına gelmez; ancak bu süreç, IB standartlarına uyum, öğretmen eğitimi ve müfredat geliştirme açısından titizlikle yürütülür.",
-      },
-    ],
-  },
-
   "ogrenme-destek": {
     group: "Akademik",
     eyebrow: "Öğrenme Destek Birimi",
@@ -399,7 +361,7 @@ export const PAGES = {
         type: "faq",
         items: [
           { q: "BİS Okulları Türk vatandaşı öğrencileri kabul ediyor mu?", a: "Evet. BİS Okulları, Türkiye Cumhuriyeti vatandaşı öğrencilere hizmet vermek amacıyla kurulmuş ulusal okullarımızdır. Öğrencilerimiz, okulumuzun sunduğu yoğun İngilizce programı ve uluslararası eğitim standartlarından tam kapasiteyle yararlanabilir." },
-          { q: "Müfredatınızın içeriği nedir?", a: "Okullarımızda Millî Eğitim Bakanlığı (MEB) müfredatı esas alınır. Ancak bu müfredat, The British School Istanbul'un kırk yıllık birikimiyle harmanlanarak, anadili İngilizce olan öğretmenler eşliğinde yoğun bir dil programıyla zenginleştirilmiştir." },
+          { q: "Müfredatınızın içeriği nedir?", a: "Okullarımızda Millî Eğitim Bakanlığı (MEB) müfredatı esas alınır. Ancak bu müfredat, BİS Okulları'nın kırk yıllık birikimiyle harmanlanarak, anadili İngilizce olan öğretmenler eşliğinde yoğun bir dil programıyla zenginleştirilmiştir." },
           { q: "İngilizce dersleri hangi öğretmenler tarafından veriliyor?", a: "Çocuğunuzun dili en doğal ve doğru telaffuzla öğrenmesi önceliğimizdir. Bu nedenle İngilizce yürütülen tüm dersler, anadili İngilizce olan (native speaker), alanında uzman öğretmenler tarafından gerçekleştirilir." },
           { q: "Türk öğretmenlerinizin dil yeterliliği ne düzeyde?", a: "Türkçe yürütülen derslerdeki öğretmenlerimiz; kendi alanlarındaki uzmanlıklarının yanı sıra hem Türkçeyi hem İngilizceyi akıcı kullanabilen, çift dilli (bilingual) iletişim yetkinliğine sahip profesyoneller arasından titizlikle seçilir." },
           { q: "Uluslararası ortamın öğrenci profiline yansıması nasıl?", a: "Okulumuzda çok kültürlü bir yapı hedeflenir. Dengeli ve küresel bir öğrenme atmosferi oluşturmak için Türk, çift uyruklu ve yabancı uyruklu öğrencilerin bir arada eğitim aldığı bir ortam sunulur." },
@@ -449,7 +411,6 @@ export const MENU = {
       items: [
         { to: "/anaokulu", label: "Okul Öncesi" },
         { to: "/yaklasim", label: "Eğitim Yaklaşımı" },
-        { to: "/uluslararasi-bakalorya", label: "Uluslararası Bakalorya" },
         { to: "/ogrenme-destek", label: "Öğrenme Destek Birimi" },
         { to: "/rehberlik", label: "Rehberlik ve Psikolojik Danışmanlık" },
         { to: "/yaratici-sanatlar", label: "Yaratıcı Sanatlar" },

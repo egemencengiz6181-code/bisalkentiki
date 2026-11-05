@@ -5,7 +5,7 @@ import "./footer.css";
 
 /* Kardeş BİS şubelerinin footer'ıyla aynı iki katmanlı yapı:
    .ftr__bot (lacivert gradyan, kampüs adresleri + iletişim + yasal satır)
-   .ftr__logos (gray zemin, BİS ailesi) + .ftr__divider (kuruluş satırı) */
+   .ftr__logos (gray zemin, BİS ailesi) */
 
 export default function Footer() {
   const year = 2026;
@@ -70,7 +70,7 @@ export default function Footer() {
       <div className="ftr__logos">
         <div className="container">
           <img src="/bis-logo.png" alt="BIS Schools" className="ftr__logos-mark" />
-          <p><span lang="en">The British School Istanbul</span> {t("footer.familySuffix")}</p>
+          <p><span lang="en">BIS Schools</span> {t("footer.familySuffix")}</p>
           <ul>
             {BIS_FAMILY.map((b) => (
               <li key={b.name}>
@@ -81,10 +81,6 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="ftr__divider">
-          {/* Zaten büyük harfle yazılı: text-transform İ/I dönüşümü yapmaz */}
-          <h1>{t("footer.foundedBy")}</h1>
         </div>
       </div>
     </footer>
