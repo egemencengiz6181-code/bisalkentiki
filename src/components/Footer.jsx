@@ -69,13 +69,13 @@ export default function Footer() {
       {/* ---------------- logoFooter ---------------- */}
       <div className="ftr__logos">
         <div className="container">
-          <img src="/bis-logo.png" alt="BIS Schools" className="ftr__logos-mark" />
-          <p><span lang="en">BIS Schools</span> {t("footer.familySuffix")}</p>
+          <img src="/bis-logo.png" alt={t("footer.brandName")} className="ftr__logos-mark" />
+          <p>{t("footer.brandName")} {t("footer.familySuffix")}</p>
           <ul>
             {BIS_FAMILY.map((b) => (
               <li key={b.name}>
                 <a href={b.href} target="_blank" rel="noreferrer">
-                  <strong lang="en">{b.name}</strong>
+                  <strong>{b.name}</strong>
                   <span>{b.note}</span>
                 </a>
               </li>

@@ -270,11 +270,11 @@ export const TOPBAR_LINKS = [
   { label: "İletişim", to: "/iletisim" },
 ];
 
-// logoFooter — BIS Schools ailesi
+// logoFooter — BİS Okulları ailesi
 export const BIS_FAMILY = [
-  { name: "BIS Schools", note: "Ulusal Okullar", href: "https://www.bisi.k12.tr/tr-TR/" },
+  { name: "BİS Okulları", note: "Ulusal Okullar", href: "https://www.bisi.k12.tr/tr-TR/" },
   { name: "BISS", note: "Uluslararası Okul", href: "https://www.bis.k12.tr" },
-  { name: "BIS STEAM", note: "Etiler STEAM Kampüsü", href: "https://www.bis.k12.tr" },
+  { name: "BİS STEAM", note: "Etiler STEAM Kampüsü", href: "https://www.bis.k12.tr" },
 ];
 
 // Ana sayfa video / kampüs turu bandı

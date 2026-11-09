@@ -25,7 +25,7 @@ kurumsal sitelerden (bisi.k12.tr) türetilmiştir.
 ### Kurumsal & Akademik (bisi.k12.tr içeriklerinden uyarlanmış)
 | Yol | Sayfa |
 |-----|-------|
-| `/kurumsal-yapi` | Kurumsal Yapı — BİS Schools ailesi |
+| `/kurumsal-yapi` | Kurumsal Yapı — BİS Okulları ailesi |
 | `/bis-hakkinda` | BİS Hakkında — BİS ne anlama gelir, neden BİS |
 | `/vizyon-misyon` | Vizyon ve Misyon · Değerler |
 | `/sss` | Sık Sorulan Sorular |

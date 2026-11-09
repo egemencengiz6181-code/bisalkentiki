@@ -49,6 +49,7 @@ export const UI = {
     "footer.kvkk": "KVKK Aydınlatma Metni",
     "footer.faq": "Sıkça Sorulan Sorular",
     "footer.careers": "Kariyer",
+    "footer.brandName": "BİS Okulları",
     "footer.familySuffix": "ailesi",
 
     // ---- CTA bandı ----
@@ -243,6 +244,7 @@ export const UI = {
     "footer.kvkk": "Data Protection Notice",
     "footer.faq": "Frequently Asked Questions",
     "footer.careers": "Careers",
+    "footer.brandName": "BIS Schools",
     "footer.familySuffix": "family",
 
     // ---- CTA band ----

@@ -7,7 +7,7 @@ export const PAGES = {
   "kurumsal-yapi": {
     group: "Kurumsal",
     eyebrow: "Kurumsal Yapı",
-    title: "BIS Schools ailesi",
+    title: "BİS Okulları ailesi",
     subtitle: "BİS Alkent Anaokulu, köklü bir eğitim geleneğinin en genç üyesi olarak güçlü bir kurumsal çatının parçasıdır.",
     hero: N(24),
     accent: "var(--pine)",
@@ -17,7 +17,7 @@ export const PAGES = {
         eyebrow: "Bir arada, tek bir vizyon",
         heading: "Güçlü bir çatının parçası",
         paragraphs: [
-          "BIS Schools çatısı altında; farklı yaş gruplarına ve ihtiyaçlara yönelik, ortak kalite standartlarıyla yönetilen okullar yer alır. BİS Alkent Anaokulu da bu ailenin okul öncesi odaklı yeni üyesidir.",
+          "BİS Okulları çatısı altında; farklı yaş gruplarına ve ihtiyaçlara yönelik, ortak kalite standartlarıyla yönetilen okullar yer alır. BİS Alkent Anaokulu da bu ailenin okul öncesi odaklı yeni üyesidir.",
           "Tüm yerleşkelerimizde öğretmen seçimi, müfredat ve politikalar tek ve ortak kalite standartları üzerinden yürütülür. Böylece hangi kampüste olursa olsun her çocuk aynı özenle karşılanır.",
         ],
         image: N(22),
@@ -28,10 +28,10 @@ export const PAGES = {
         eyebrow: "Okullarımız",
         heading: "Aynı ailenin okulları",
         items: [
-          { title: "BİS Schools", tag: "Ulusal Okullar", text: "Zekeriyaköy, Bahçeşehir ve Çamlıca kampüsleriyle Türk ve çift uyruklu öğrencilere MEB müfredatı çerçevesinde eğitim." },
+          { title: "BİS Okulları", tag: "Ulusal Okullar", text: "Zekeriyaköy, Bahçeşehir ve Çamlıca kampüsleriyle Türk ve çift uyruklu öğrencilere MEB müfredatı çerçevesinde eğitim." },
           { title: "BİS Alkent Anaokulu", tag: "Okul Öncesi · Yeni", text: "Büyükçekmece Alkent'te, 3–5 yaş için okul öncesi odaklı yeni kampüsümüz.", featured: true },
           { title: "BISS", tag: "Uluslararası", text: "Zekeriyaköy Forest Kampüsü'nde, yabancı pasaport sahibi öğrencilere yönelik uluslararası statüdeki okulumuz." },
-          { title: "BIS STEAM", tag: "STEAM", text: "Etiler STEAM Kampüsü'nde, bilim ve teknoloji odaklı eğitim anlayışı." },
+          { title: "BİS STEAM", tag: "STEAM", text: "Etiler STEAM Kampüsü'nde, bilim ve teknoloji odaklı eğitim anlayışı." },
         ],
       },
     ],
@@ -41,7 +41,7 @@ export const PAGES = {
     group: "Kurumsal",
     eyebrow: "BİS Hakkında",
     title: "İkinci kez; daha da güçlü",
-    subtitle: "BİS Schools, çocukların aileden getirdiği değerleri okul ortamında bilgi, beceri ve deneyimle perçinler.",
+    subtitle: "BİS Okulları, çocukların aileden getirdiği değerleri okul ortamında bilgi, beceri ve deneyimle perçinler.",
     hero: N(22),
     accent: "var(--pine)",
     blocks: [
@@ -50,7 +50,7 @@ export const PAGES = {
         eyebrow: "BİS Ne Anlama Gelir?",
         heading: "Beğenileni bir kez daha, daha güçlü yaşatmak",
         paragraphs: [
-          "Türk Dil Kurumu'na (TDK) göre \"BİS\", beğenilen veya takdir edilen bir şeyin ikinci kez tekrarlanması anlamına gelir. BİS Schools olarak bu anlamı, eğitim felsefemizin merkezine yerleştiriyoruz.",
+          "Türk Dil Kurumu'na (TDK) göre \"BİS\", beğenilen veya takdir edilen bir şeyin ikinci kez tekrarlanması anlamına gelir. BİS Okulları olarak bu anlamı, eğitim felsefemizin merkezine yerleştiriyoruz.",
           "Bizim için \"ikinci kez\", eğitimin ilk olarak aile ve toplumda başladığı, okulun ise bu temelin üzerine inşa edilen tamamlayıcı ve güçlendirici bir rol üstlendiği anlamını taşır. BİS olarak görevimiz; çocukların aileden getirdiği değerleri, okul ortamında bilgi, beceri ve deneyimle perçinlemektir.",
           "Kırk yıllık eğitim tecrübemiz ve yüksek kalite standartlarımızla, okullarımızda aynı güçlü eğitim anlayışını sürdürmeyi taahhüt ediyoruz.",
         ],
@@ -59,9 +59,9 @@ export const PAGES = {
       },
       {
         type: "groupList",
-        eyebrow: "Neden BİS Schools?",
+        eyebrow: "Neden BİS Okulları?",
         heading: "Yalnızca akademik değil; çok yönlü bir deneyim",
-        text: "BİS Schools, öğrencilerine güvenli, destekleyici ve çok yönlü bir okul deneyimi sunar.",
+        text: "BİS Okulları, öğrencilerine güvenli, destekleyici ve çok yönlü bir okul deneyimi sunar.",
         groups: [
           { icon: "leaf", title: "Güçlü Öğrenme Ortamı", items: ["Doğayla iç içe, açık hava eğitimlerine uygun lokasyon", "Kütüphaneler ve modern teknolojiyle donatılmış alanlar", "Bilim ve keşif atölyeleri", "Her hava koşuluna uygun spor sahaları", "Güvenli zeminli oyun ve aktivite alanları"] },
           { icon: "globe", title: "Kapsayıcı ve Çok Kültürlü Yapı", items: ["Türk, yabancı ve çift uyruklu öğrencilerin birlikte eğitim aldığı çok kültürlü ortam", "Doğal kültürel etkileşimi güçlendiren dengeli öğrenci profili"] },
@@ -73,7 +73,7 @@ export const PAGES = {
       },
       {
         type: "callout",
-        text: "BİS Schools, öğrencilerini yalnızca bugüne değil; geleceğe, hayata ve dünyaya hazırlayan bir eğitim yaklaşımı benimser.",
+        text: "BİS Okulları, öğrencilerini yalnızca bugüne değil; geleceğe, hayata ve dünyaya hazırlayan bir eğitim yaklaşımı benimser.",
       },
     ],
   },
@@ -353,7 +353,7 @@ export const PAGES = {
     group: "Kurumsal",
     eyebrow: "Sık Sorulan Sorular",
     title: "Merak ettikleriniz",
-    subtitle: "BİS Alkent ve BİS Schools eğitim anlayışına dair en çok merak edilenleri bir araya getirdik.",
+    subtitle: "BİS Alkent ve BİS Okulları eğitim anlayışına dair en çok merak edilenleri bir araya getirdik.",
     hero: N(30),
     accent: "var(--gold)",
     blocks: [
